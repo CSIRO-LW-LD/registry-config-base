@@ -6,13 +6,13 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
-@prefix er-ui:  <http://environment.data.gov.uk/registry/structure/ui/> .
-@prefix er-cat:  <http://environment.data.gov.uk/registry/structure/category/> .
-@prefix er-org:  <http://environment.data.gov.uk/registry/structure/org/> .
-@prefix er-entity:  <http://environment.data.gov.uk/registry/structure/entity-type/> .
+@prefix rr-ui:  <http://registry.example.org/structure/ui/> .
+@prefix rr-cat:  <http://registry.example.org/structure/category/> .
+@prefix rr-org:  <http://registry.example.org/structure/org/> .
+@prefix rr-entity:  <http://registry.example.org/structure/entity-type/> .
 
 <bulkCollectionTypes> a reg:Register;
     rdfs:label "bulk collection types"@en;
     dct:description "System register describing the data types which can be uploaded as bulk collections"@en;
-    reg:category  er-cat:System;
+    reg:category  rr-cat:System;
     .

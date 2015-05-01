@@ -84,6 +84,11 @@
         #end
         <li id="close-pillstack" class="hide"><a href="#collapse-tab" data-toggle="tab"><span class="glyphicon glyphicon-remove-circle"></span></a></li>
     </ul>
+    #if(!$register)
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="mailto:owner@example.org?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20registered%20item.%20">Send comment</a></li>
+      </ul>
+    #end
   </div>
 </div>
 

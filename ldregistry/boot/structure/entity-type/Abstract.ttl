@@ -1,0 +1,34 @@
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ui:    <http://purl.org/linked-data/registry-ui#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix ssd:   <http://www.w3.org/ns/sparql-service-description#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dgu:   <http://reference.data.gov.uk/def/reference/> .
+@prefix odrs:  <http://schema.theodi.org/odrs#> .
+@prefix rr-ui: <http://registry.example.org/structure/ui/> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix vs:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix version: <http://purl.org/linked-data/version#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix reg:   <http://purl.org/linked-data/registry#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix api:   <http://purl.org/linked-data/api/vocab#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix ldp:   <http://www.w3.org/ns/ldp#> .
+@prefix rr-entity:  <http://registry.example.org/structure/entity-type/> .
+
+rr-entity:Abstract
+        a                skos:Concept ;
+        rdfs:label       "Abstract" ;
+        dct:description  "Code lists used for abstract things including for internal registry operation" ;
+        skos:notation    "Abstract" ;
+        skos:prefLabel   "Abstract" ;
+        .

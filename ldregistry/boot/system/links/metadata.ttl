@@ -13,13 +13,13 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
-@prefix er-ui:  <http://environment.data.gov.uk/registry/structure/ui/> .
-@prefix er-cat:  <http://environment.data.gov.uk/registry/structure/category/> .
-@prefix er-org:  <http://environment.data.gov.uk/registry/structure/org/> .
-@prefix er-entity:  <http://environment.data.gov.uk/registry/structure/entity-type/> .
+@prefix rr-ui:  <http://registry.example.org/structure/ui/> .
+@prefix rr-cat:  <http://registry.example.org/structure/category/> .
+@prefix rr-org:  <http://registry.example.org/structure/org/> .
+@prefix rr-entity:  <http://registry.example.org/structure/entity-type/> .
 
 <links> a reg:Register;
     rdfs:label "Link definitions"@en;
     dct:description "A system register which lists all link definitions which the UI should look for when rendering individual items"@en;
-    reg:category  er-cat:System;
+    reg:category  rr-cat:System;
     .

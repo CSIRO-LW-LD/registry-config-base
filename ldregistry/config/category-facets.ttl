@@ -7,34 +7,34 @@
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix facet:   <http://www.epimorphics.com/ontologies/facet#> .
-@prefix er-ui:      <http://environment.data.gov.uk/registry/structure/ui/> .
+@prefix rr-ui:      <http://registry.example.org/structure/ui/> .
 
-er-ui:baseCatFacets
-    facet:facets (er-ui:catFacet er-ui:ownerFacet er-ui:entityFacet );
+rr-ui:baseCatFacets
+    facet:facets (rr-ui:catFacet rr-ui:ownerFacet rr-ui:entityFacet );
     facet:query """?item a <http://purl.org/linked-data/registry#RegisterItem>;
                           <http://purl.org/linked-data/registry#itemClass> <http://purl.org/linked-data/registry#Register> .
                           """;
     .
 
-er-ui:catFacet a facet:Facet;
+rr-ui:catFacet a facet:Facet;
     rdfs:label "Category";
     skos:notation "category";
     facet:query "<http://purl.org/linked-data/version#currentVersion>/<http://purl.org/linked-data/registry#definition>/<http://purl.org/linked-data/registry#entity>/<http://purl.org/linked-data/version#currentVersion>/<http://purl.org/linked-data/registry#category>" ;
     .
 
-er-ui:entityFacet a facet:Facet;
+rr-ui:entityFacet a facet:Facet;
     rdfs:label "Entity";
     skos:notation "entity";
-    facet:query "<http://purl.org/linked-data/version#currentVersion>/<http://purl.org/linked-data/registry#definition>/<http://purl.org/linked-data/registry#entity>/<http://purl.org/linked-data/version#currentVersion>/<http://environment.data.gov.uk/registry/structure/ui/entityType>" ;
+    facet:query "<http://purl.org/linked-data/version#currentVersion>/<http://purl.org/linked-data/registry#definition>/<http://purl.org/linked-data/registry#entity>/<http://purl.org/linked-data/version#currentVersion>/<http://registry.example.org/structure/ui/entityType>" ;
     .
 
-er-ui:ownerFacet  a facet:Facet;
+rr-ui:ownerFacet  a facet:Facet;
     rdfs:label "Owner";
     skos:notation "owner";
     facet:query "<http://purl.org/linked-data/version#currentVersion>/<http://purl.org/linked-data/registry#definition>/<http://purl.org/linked-data/registry#entity>/<http://purl.org/linked-data/version#currentVersion>/<http://purl.org/linked-data/registry#owner>" ;
     .
 
-er-ui:entityType a owl:ObjectProperty;
+rr-ui:entityType a owl:ObjectProperty;
     rdfs:label "category - Entity Type"@en;
     rdfs:description "Property use to categorize the type of entity a code list describes"@en;
     .

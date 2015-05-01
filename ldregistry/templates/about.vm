@@ -4,14 +4,14 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>Environment Registry (alpha)</h1>
+        <h1>My test registry<a href="http://www.example.org"><img class="pull-right" src="/ui/img/Untitled.png" alt="TEST ORGANIZATION" name="logoORG" height="100" border="5"></img></a></h1>
       </div>
     </div>
 
     <div class="container">
       <div class="row">
-        <p>This is a pilot service to provide management and public access to codes and codelists used by the Defra family of organizations.</p>
-        <p>It is based on the UKGovLD <a href="https://github.com/UKGovLD/ukl-registry-poc/wiki">proof-of-concept design</a> for a Linked Data registry.</p>
+        <p>This service provides management and public access to codes, codelists, vocabularies, ontologies and other reference resources authorized or adopted by the TEST ORGANIZATION.</p>
+        <p>It is based on the UKGovLD <a href="https://github.com/UKGovLD/registry-core/wiki">design</a> for a Linked Data registry.</p>
       </div>
     ## container will be closed by footer
 
