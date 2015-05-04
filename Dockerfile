@@ -1,4 +1,5 @@
 FROM ubuntu 
+ENV HOME /root
 ADD . /root/registry-deploy
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends git maven curl tomcat7 openjdk-7-jdk wget nginx sysv-rc-conf
