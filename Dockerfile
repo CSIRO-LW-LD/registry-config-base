@@ -9,7 +9,7 @@ RUN mkdir -p /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry /var/opt/ng
 RUN wget https://s3-eu-west-1.amazonaws.com/ukgovld/snapshot/com/github/ukgovld/registry-core/0.1.1-SNAPSHOT/registry-core-0.1.1-20150505.160608-1.war
 RUN mkdir -p /usr/share/tomcat7/logs
 RUN cp -R ~/registry-deploy/ldregistry/* /opt/ldregistry
-RUN cp  ~/registry-deploy/proxy-redirectError.conf /var/opt/ldregistry
+RUN cp  ~/registry-deploy/proxy-redirectVersion.conf /var/opt/ldregistry
 RUN cat ~/registry-deploy/install/nginx.logrotate.conf >> /etc/logrotate.conf
 RUN cp ~/registry-deploy/install/nginx.conf /etc/nginx/conf.d/localhost.conf
 RUN cp ~/registry-deploy/install/sudoers.conf /etc/sudoers.d/ldregistry
