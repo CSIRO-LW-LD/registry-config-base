@@ -1,11 +1,12 @@
 FROM ubuntu 
+ENV HOME /root
 ADD . /root/registry-deploy
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends git maven curl tomcat7 openjdk-7-jdk wget nginx sysv-rc-conf
 RUN sysv-rc-conf tomcat7 on
 RUN sysv-rc-conf nginx on
 RUN mkdir -p /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry /var/opt/nginx/cache
-RUN wget https://s3-eu-west-1.amazonaws.com/ukgovld/release/com/github/ukgovld/registry-core/0.0.6/registry-core-0.0.6.war
+RUN wget https://s3-eu-west-1.amazonaws.com/ukgovld/snapshot/com/github/ukgovld/registry-core/0.1.1-SNAPSHOT/registry-core-0.1.1-20150505.160608-1.war
 RUN mkdir -p /usr/share/tomcat7/logs
 RUN cp -R ~/registry-deploy/ldregistry/* /opt/ldregistry
 RUN cp  ~/registry-deploy/proxy-redirectError.conf /var/opt/ldregistry
@@ -14,7 +15,7 @@ RUN cp ~/registry-deploy/install/nginx.conf /etc/nginx/conf.d/localhost.conf
 RUN cp ~/registry-deploy/install/sudoers.conf /etc/sudoers.d/ldregistry
 RUN rm -rf /var/lib/tomcat7/webapps/* 
 RUN chown -R tomcat7 /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry
-RUN cp registry-core-0.0.6.war /var/lib/tomcat7/webapps/ROOT.war
+RUN cp registry-core-0.1.1-20150505.160608-1.war /var/lib/tomcat7/webapps/ROOT.war
 RUN rm /etc/nginx/sites-available/default 
 
 #supervisord
