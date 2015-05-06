@@ -1,5 +1,22 @@
       <footer>
-        <div class="pull-right">Developed by <a href="http://www.epimorphics.com/">Epimorphics Ltd</a></div>
+        <div class="pull-right">Developed by <a href="http://www.epimorphics.com/">Epimorphics Ltd</a><br/>
+        Customised by <a href="http://www.csiro.au/">CSIRO Australia</a></div>
+
+#if($entity.getPropertyValue("dct:license"))
+ <p> License : 
+    #foreach($r in $entity.listPropertyValues("dct:license"))
+      #linkfor($r)
+    #end
+ </p>
+#end
+#if($entity.getPropertyValue("dct:rights"))
+ <p> Rights :
+    #foreach($r in $entity.listPropertyValues("dct:rights"))
+      #render($r)
+    #end
+ </p>
+#end
+
       </footer>
     </div> <!-- End of container -->
 

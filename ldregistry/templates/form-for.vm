@@ -15,7 +15,20 @@
     #set($notation=$field.getPropertyValue("skos:notation").lexicalForm)
     <div class="form-group">
       <label class="control-label popinfo" for="$notation"  data-trigger="hover" data-placement="bottom"
-                 data-content="$field.getPropertyValue("ui:tooltip").lexicalForm">$field.name</label>
+                 ##data-content="$field.getPropertyValue("ui:tooltip").lexicalForm">$field.name</label>
+                 ## THIS Code ADDS IN EMPHASIS TO THE REQUIRED/Recommended FORM VALUES
+                 data-content="$field.getPropertyValue("ui:tooltip").lexicalForm">
+                      #set($reqOne = "id")
+                      #set($reqTwo = "label")
+                      #set($recommend = "description")
+                      #set($b = $field.name)
+                      #if($b == $reqOne || $b == $reqTwo)$b <font size="2" color="red">(required)</font>
+                      #elseif( $b == $recommend )
+                      $b <font size="2" color="red">(recommended)</font>
+                      #else
+                      $b
+                      #end
+                 </label>
         #if($field.hasResourceValue("ui:fieldType", "ui:labelField"))
           <input class="form-control" type="text" name="$notation" id="$notation" placeholder="$field.name"></input>
         #elseif($field.hasResourceValue("ui:fieldType", "ui:textField"))
