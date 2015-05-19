@@ -9,9 +9,9 @@
 
 #else
   #set($model=$response.entity)
-  #set($versions=$model.querySelectW("SELECT ?version ?from ?to WHERE {?version dct:isVersionOf <$target> .
+  #set($versions=$model.querySelectW("SELECT ?version ?vi ?from ?to WHERE {?version dct:isVersionOf <$target> ; owl:versionInfo ?vi.
                        OPTIONAL {?version version:interval [time:hasBeginning [time:inXSDDateTime ?from]].}
-                       OPTIONAL {?version version:interval [time:hasEnd [time:inXSDDateTime ?to]].}} ORDER BY DESC(?version)"))
+                       OPTIONAL {?version version:interval [time:hasEnd [time:inXSDDateTime ?to]].}} ORDER BY DESC(?vi)"))
 
   <h3 class="text-center">Historical versions available</h3>
 

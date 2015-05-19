@@ -36,7 +36,9 @@
           #smetadatarow("rights attribution", $entity.connectedNodes("dct:rights/<http://schema.theodi.org/odrs#attributionText>"))
           #metadatarow("last changed on", $entity.listPropertyValues("dct:modified"))
           #nmetadatarow("submitted by", $item.listPropertyValues("reg:submitter"))
-          #metadatarow("accepted  on", $item.listPropertyValues("dct:dateAccepted"))
+          #metadatarow("accepted on", $item.listPropertyValues("dct:dateAccepted"))
+          #metadatarow("superseded by", $item.listPropertyValues("reg:successor"))
+          #metadatarow("supersedes", $item.listPropertyValues("reg:predecessor"))
         </table>
       </div>
       <div class="tab-pane" id="allmetadataTab">     

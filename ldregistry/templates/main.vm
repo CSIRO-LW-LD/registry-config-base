@@ -1,7 +1,7 @@
 #if($uri)#set($pageTitle="My test registry: $uri")#end
 #parse("header.vm")
 
-#if(!$uri.isEmpty() || ${_browse})
+#if(!$uri.isEmpty() || $entity  || ${_browse})
   #parse("page-deref.vm")
 #else
   #parse("page-category.vm")

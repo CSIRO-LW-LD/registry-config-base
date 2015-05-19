@@ -11,7 +11,10 @@
                 <td>JSON-LD</td><td><a href="#linkhref($entity)?_format=jsonld">plain</a></td><td><a href="#linkhref($entity)?_format=jsonld&_view=with_metadata">with metadata</a></td>
               </tr>
               <tr>  
-                <td>CSV</td><td><a href="#linkhref($entity)?_format=csv">export</a></td><td></td>
+                <td>CSV</td><td><a href="#linkhref($entity)?_format=csv">plain</a></td><td><a href="#linkhref($entity)?_format=csv&_view=with_metadata">with metadata</a></td>
+              </tr>
+              <tr>
+                <td>Export all</td><td><a href="#linkhref($entity)?export">export</a></td><td></td>
               </tr>
             </tbody>
           </table>

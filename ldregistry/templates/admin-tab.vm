@@ -1,6 +1,39 @@
 ## Actions for an item
 
-  ## Set statis for the entity itself
+## Macro to generate one of the admin dialogs
+
+#macro(grantdialog $grant $gdid)
+    <div id="$gdid" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3>Locate a registered user to grant $grant administration rights to</h3>
+          </div>
+          <div class="modal-body">
+            <form id="user-form-$grant"  class="form-search query-form"
+        data-target="$root/system/security/listusers?uri=/$uri&suffix=test&grant=$grant&query=" data-query="#user-query-$grant" data-result="#user-list-$grant">
+              <div class="input-group">
+                <input class="form-control" id="user-query-$grant" type="text" class="input-medium">
+                <span class="input-group-btn">
+                  <button id="user-search-$grant" type="submit" class="btn">Search</button>
+                </span>
+              </div>
+            </form>
+            <div id="user-list-$grant"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->  
+#end
+
+## End of macro
+
+
+  ## Set status for the entity itself
   #if($lib.reg.isPermitted("StatusUpdate", $uri))
     #if(!$foundAction)
       <h3 class="text-center">Actions</h3>
@@ -8,7 +41,7 @@
       #set($foundAction=true)
       #set($itemStatusDialog=true)
     #end
-    <a href="#status-dialog" role="button" class="btn btn-primary btn-sm" data-toggle="modal">Set status</a>
+    <a href="#status-dialog" role="button" class="btn btn-default btn-sm" data-toggle="modal">Set status</a>
 
     ## Set status for the contents of a register
     #if ($register)
@@ -24,7 +57,7 @@
         #set($ml=$members[0].connectedNodes("^reg:entity/^reg:definition"))
         #if(!$ml.isEmpty())
           #set($sample=$ml[0])
-          <a href="#status-dialog2" role="button" class="btn btn-primary btn-sm" data-toggle="modal">Set contents status</a>
+          <a href="#status-dialog2" role="button" class="btn btn-default btn-sm" data-toggle="modal">Set contents status</a>
         #else
           #set($sample=false)
         #end
@@ -39,7 +72,10 @@
      <p>
       #set($foundAction=true)
     #end
-    <a href="$uiroot/registration?register=#linkhref($register)&return=$root/$uri" role="button" class="btn btn-primary btn-sm" data-toggle="modal">Add registration <span class="glyphicon glyphicon-plus-sign"></a>
+    <a href="$uiroot/registration?register=#linkhref($register)&return=$root/$uri" role="button" class="btn btn-default btn-sm" data-toggle="modal">Add registration <span class="glyphicon glyphicon-plus-sign"></a>
+
+    <a href="#patch-dialog" role="button" class="btn btn-default btn-sm" data-toggle="modal">Patch</a>
+    #set($patchDialog=true)
   #end
 
   #if($foundAction)
@@ -54,13 +90,19 @@
     #end
     <p>
 ##    #if(!$register)
-    <a href="$uiroot/edit-form?target=$lib.pathEncode($entity.uRI)&return=$root/$uri?tabStatus=adminTab&isRegister=true" role="button" class="btn btn-primary btn-sm" >Edit <span class="glyphicon glyphicon-edit"></span></a>
+    <a href="$uiroot/edit-form?target=$lib.pathEncode($entity.uRI)&return=$root/$uri?tabStatus=adminTab&isRegister=true" role="button" class="btn btn-default btn-sm" >Edit <span class="glyphicon glyphicon-edit"></span></a>
 ##    #end
 
     <a href="$uiroot/edit-form?target=$lib.pathEncode($item.uRI)&return=$root/$uri?tabStatus=adminTab" role="button" class="btn btn-danger btn-sm" >Edit metadata <span class="glyphicon glyphicon-edit"></span></a>
 
-    <a href="#annotate-dialog" role="button" class="btn btn-primary btn-sm" data-toggle="modal">Attach graph</a>
+    <a href="#annotate-dialog" role="button" class="btn btn-default btn-sm" data-toggle="modal">Attach graph</a>
     #set($annotateDialog=true)
+  #end
+
+  ## Import
+  #if($register && $lib.reg.isPermitted("RealDelete", $uri) && $uri != "_")
+    <a href="#import-dialog" role="button" class="btn btn-danger btn-sm" data-toggle="modal">Import</a>
+    #set($importDialog=true)
   #end
 
   ## Real delete
@@ -115,6 +157,67 @@
         </div>
       </div>
     #end
+
+    #if($patchDialog)
+      <div id="patch-dialog" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3>Patch the register (adding/changing items)</h3>
+            </div>
+            <div id="annotate-dialog-status-body" class="modal-body">
+              #set($target="$root/$uri.replace('/_','/')")
+              <form id="annotate-form" action="$target" method="post" enctype="multipart/form-data" data-action="$target">
+                <div class="form-group">
+                  <label for="chooser">
+                    Choose patch file to upload:
+                  </label>
+                  <input id="chooser" class="form-control" type="file" name="file" multiple />
+                </div>
+                <input type="hidden" name="action" value="edit" />
+                <button class="btn form-submit">patch</button>
+              </form>
+              <div class="ajax-error"></div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    #end
+
+    #if($importDialog)
+      <div id="import-dialog" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3>Import a replacement register tree</h3>
+            </div>
+            <div id="annotate-dialog-status-body" class="modal-body">
+              #set($target="$root/$uri.replace('/_','/')")
+              <form id="annotate-form" action="$target" method="post" enctype="multipart/form-data" data-action="$target">
+                <div class="form-group">
+                  <label for="chooser">
+                    Choose import file to upload:
+                  </label>
+                  <input id="chooser" class="form-control" type="file" name="file" multiple />
+                </div>
+                <input type="hidden" name="action" value="import" />
+                <button class="btn form-submit">import</button>
+              </form>
+              <div class="ajax-error"></div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    #end
+
   #end
 
   #set($isAdministrator=$lib.reg.isPermitted("Grant", $uri))
@@ -146,7 +249,7 @@
             <form class="form-inline" action="$root/system/security/ungrant" method="post">
               <input type="hidden" name="user" value="$user.openid" />
               <input type="hidden" name="path" value="$path" />
-              <input type="submit" value="remove" class="btn btn-primary btn-sm"></input>
+              <input type="submit" value="remove" class="btn btn-default btn-sm"></input>
             </form>
           </td>
         </tr>
@@ -156,21 +259,23 @@
        </table>
     #end
 
+    #if($register)
     <div class="row space-above">
-      <div class="col-md-4">
-        <a href="#grant-user-dialog" role="button" class="btn btn-primary btn-sm" data-toggle="modal">Add $grant</a>
+      <div class="col-md-7">
+        <a href="#grant-user-dialog" role="button" class="btn btn-default btn-sm" data-toggle="modal">$grant</a>
+        <a href="#grant-submitter" role="button" class="btn btn-default btn-sm" data-toggle="modal">Submitter</a>
+        <a href="#grant-reviewer" role="button" class="btn btn-default btn-sm" data-toggle="modal">Reviewer</a>
       </div>
-      #if($register)
-      <div class="col-md-4">
+      <div class="col-md-2">
         <form class="form-inline" action="$root/system/security/grant" method="post">
           <input type="hidden" name="grant" value="Register" />
           <input type="hidden" name="user" value="http://localhost/anon" />
           <input type="hidden" name="path" value="$path" />
-          <input type="submit" value="Open registration" class="btn btn-default popinfo btn-sm"
+          <input type="submit" value="Open" class="btn btn-default popinfo btn-sm"
                 data-trigger="hover" data-placement="bottom" data-content="Any authorized user can register items"/>
         </form>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <form class="form-inline" action="$root/system/security/grant" method="post">
           <input type="hidden" name="grant" value="Authorized" />
           <input type="hidden" name="user" value="http://localhost/anon" />
@@ -179,46 +284,37 @@
                 data-trigger="hover" data-placement="bottom" data-content="Any authorized user can register items, update them and update status"/>
         </form>
       </div>
-      #end
     </div>
+    #else
+    <div class="row space-above">
+      <div class="col-md-6">
+        <a href="#grant-user-dialog" role="button" class="btn btn-default btn-sm" data-toggle="modal">$grant</a>
+      </div>
+    </div>
+    #end
 
-    <div id="grant-user-dialog" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3>Locate a registered user to grant administration rights to</h3>
-          </div>
-          <div class="modal-body">
-            <form id="user-form"  class="form-search query-form"
-        data-target="$root/system/security/listusers?uri=/$uri&grant=$grant&query=" data-query="#user-query" data-result="#user-list">
-              <div class="input-group">
-                <input class="form-control" id="user-query" type="text" class="input-medium">
-                <span class="input-group-btn">
-                  <button id="user-search" type="submit" class="btn">Search</button>
-                </span>
-              </div>
-            </form>
-            <div id="user-list"></div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->  
-  #end
+    #grantdialog($grant, "grant-user-dialog")
+    #if($register)
+      #grantdialog("Submitter", "grant-submitter")
+      #grantdialog("Reviewer", "grant-reviewer")
+    #end
+
+ #end
 
 
 
 <script type="text/javascript">
     $(function() {
 
-       $(".set-status").click(function(event) {
-         var action = $(event.target).attr('data-target') + "?update&status=" + $(event.target).attr('data-status');
-         $.ajax(action,{
+      $(".set-status").click(function(event) {
+        var action = $(event.target).attr('data-target') + "?update&status=" + $(event.target).attr('data-status');
+        var argid = $(event.target).attr('data-arg');
+        if (argid) {
+            action += "&successor=" + $(argid).val();
+        }
+        $.ajax(action,{
             type : "POST",
-            complete :
+            success :
               function(data, status, xhr){
                 $("#status-dialog").modal("hide");
                 location.reload();
@@ -227,8 +323,8 @@
               function(xhr, status, error){
                $(".status-error").html("<div class='alert alert-warning'> <button type='button' class='close' data-dismiss='alert'>&times;</button>Action failed: " + error + " - " + status + "</div>");
               }
-         });
-       });
+        });
+      });
 
     });
 
