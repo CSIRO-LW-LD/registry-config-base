@@ -12,7 +12,11 @@
 #end
 
 #if($rootType) 
-  #set($queryPart="?entity a $rootType. ")
+  #if ($rootType.isResource())
+    #set($queryPart="?entity a <$rootType.uRI>. ")
+  #else
+    #set($queryPart="?entity a $rootType. ")
+  #end
 #elseif($rootProp)
   #set($queryPart="?entity $rootProp []. ")
 #else

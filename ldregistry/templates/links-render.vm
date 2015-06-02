@@ -16,7 +16,12 @@
   #set($node=$model.getNode($target))
   #foreach($linkTemplate in $node.connectedNodes("rdfs:member"))
 
-    #set($path = $linkTemplate.getPropertyValue("ui:path").lexicalForm)
+    #set($pathR = $linkTemplate.getPropertyValue("ui:path"))
+    #if ($pathR.isResource())
+        #set($path = "<$pathR.uRI>")
+    #else
+        #set($path = $pathR.lexicalForm)
+    #end
     #set($links = $entity.connectedNodes($path))
 
     #if(!$links.isEmpty())
