@@ -1,0 +1,148 @@
+## Render a page for a regsistered entity - it may be a register or a leaf entry
+##   $entity   - the thing to render
+##   $item     - the RegisterItem corresponding to $entity
+##   $register - same as $entity if it is a register, otherwise undefined
+
+## Bind $uri to the path for $item so the general action-tab machinery (in footer.vm) works uniformly
+#set($uri = $item.uRI.substring($registry.baseURI.length()))
+#set($uri = $uri.replaceAll("^/", ""))
+
+#set($template = $lib.reg.templateFor($entity))
+
+<div class="row">
+  <div class="col-md-10">
+    #parse("breadcrumbs.vm")
+  </div>
+  <div class="col-md-offset-1 col-md-1">
+    #showstatus($item.getPropertyValue("reg:status"))
+  </div>
+</div>
+
+<div class="row">
+  <div id="description" class="col-md-10">
+    <h2>#if($register)Register: #{else}Entry: #end $entity.name #if($versionNumber)- showing version $versionNumber#end</h2>
+    <p>  <strong>URI:</strong> <a href="#linkhref($entity)" title="$entity.uRI">$entity.uRI</a> </p>
+    <p> #description($entity, "<p><em>no description supplied</em></p>") </p>
+  </div>
+  <div id="metadata-pane" class="col-md-5 hide">
+    <div class="tab-content" id="metadata-content">
+      <div class="tab-pane" id="detailsTab">
+        <h3 class="text-center">Core metadata</h3>
+        <table class="table table-condensed">
+          #metadatarow("is a", $entity.listPropertyValues("rdf:type"))
+          #metadatarow("category", $entity.listPropertyValues("reg:category"))
+          #metadatarow("owned by", $entity.listPropertyValues("reg:owner"))
+          #metadatarow("license", $entity.listPropertyValues("dct:license"))
+          #smetadatarow("rights attribution", $entity.connectedNodes("dct:rights/<http://schema.theodi.org/odrs#attributionText>"))
+          #metadatarow("last changed on", $entity.listPropertyValues("dct:modified"))
+          #nmetadatarow("submitted by", $item.listPropertyValues("reg:submitter"))
+          #metadatarow("accepted on", $item.listPropertyValues("dct:dateAccepted"))
+          #metadatarow("superseded by", $item.listPropertyValues("reg:successor"))
+          #metadatarow("supersedes", $item.listPropertyValues("reg:predecessor"))
+        </table>
+      </div>
+      <div class="tab-pane" id="allmetadataTab">     
+        <h3  class="text-center">All registration metadata </h3>     
+        #restable($item, "table-striped table-condensed")
+      </div>
+      <div class="tab-pane" id="downloadsTab">
+        #parse("downloads.vm")
+      </div>
+      #if($register || $template)
+        <div class="tab-pane" id="propertiesTab">
+          <h3 class="text-center">All properties of the entity</h3>
+          #restable($entity, "table-striped table-condensed")
+        </div>
+      #end
+      #if(!$register)
+        <div class="tab-pane" id="historyTab" data-action="showhistory" data-uri='$uri' data-uiroot='$uiroot'>
+          Pane is loading ...
+        </div>
+      #end
+      #if($subject.isAuthenticated())
+        <div class="tab-pane" id="adminTab">
+          #parse("admin-tab.vm")
+        </div>
+      #end
+      <div class="tab-pane active" id="collapse-tab">
+        <span class="small">Select tab to expand</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <ul class="nav nav-pills nav-stacked action-tab" id="pillstack">
+        <li><a href="#detailsTab">Core metadata</a></li>
+        <li><a href="#allmetadataTab" data-toggle="tab">Reg metadata</a></li>
+        ## #if($register || $template)  ## Suppressed to reduce height of pill stack
+        #if($register)
+          <li><a href="#propertiesTab">All properties</img> </a></li>
+        #end
+        <li><a href="#downloadsTab">Download</a></li>
+        #if(!$register)
+          <li><a href="#historyTab" data-toggle="tab">History</a></li>
+        #end
+        ## Comment button here if implemented as another tab
+        #if($subject.isAuthenticated())
+          <li><a href="#adminTab">Admin</span></a></li>
+        #end
+        <li id="close-pillstack" class="hide"><a href="#collapse-tab" data-toggle="tab"><span class="glyphicon glyphicon-remove-circle"></span></a></li>
+    </ul>
+    ## Comment button here if independent pop-up
+        #if($register)
+          <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:ogc-na@lists.opengeospatial.org?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20register.%20">Send comment</a></li></ul>
+        #else 
+          <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:ogc-na@lists.opengeospatial.org?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20registered%20entity.%20">Send comment</a></li></ul>
+        #end
+  </div>
+</div>
+
+#if($register)
+  #set($items = $model.querySelectW("SELECT * where {?page a ldp:Page; api:items ?items.}"))
+  #if (!$items.isEmpty())
+    #set($members=$items.get(0).items.asList())
+    #set($hasmembers=!$members.isEmpty())
+  #else
+    #set($hasmembers=false)
+  #end
+
+  #if(!$hasmembers)
+    <h2>... currently empty</h2>
+  #else
+    #if (($register.getPropertyValue("ui:hierarchyRootType") || $register.getPropertyValue("ui:hierarchyRootProperty")) && $register.getPropertyValue("ui:hierarchyChildProperty"))
+      #if(!$listView)
+        <h2>Contents (tree view) <a href="$request.requestURL?listView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a flat list"><span class="glyphicon glyphicon-list"></span></a></h2>
+        #parse("register-tree.vm")
+      #else
+        <h2>Contents (list view) <a href="$request.requestURL?treeView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a hierarchy"><span class="glyphicon glyphicon-tree-conifer"></span></a></h2>
+        #parse("register-list.vm")
+      #end
+    #else
+      <h2>Contents</h2>
+      #parse("register-list.vm")
+    #end
+  #end
+
+#else 
+
+  <div class="row">
+  	<div class="col-md-6">
+  		<h2>Definition</h2>
+  		#if($template)
+          #parse($template)
+  		#else
+  		  #restable($entity, "table-striped table-condensed table-bordered")
+  		#end
+  	</div>
+    <div class="col-md-offset-1 col-md-5">
+      #parse("links-render.vm")
+    </div>
+  </div>
+#end
+
+#if($tabStatus)
+<script type="text/javascript">
+  $(function() {
+    showMetadataTab("$tabStatus");
+  });
+</script>
+#end

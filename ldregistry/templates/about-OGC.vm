@@ -1,0 +1,23 @@
+#parse("header.vm")
+#set($nav="about")
+#parse("navbar.vm")
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>OGC Linked Data Registry <a href="http://www.opengeospatial.org"><img class="pull-right" src="/ui/images/OGC.jpg" alt="Open Geospatial Consortium" name="logoOGC" height="100" border="5"></img></a></h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <p>This service provides management and public access to codes, codelists, vocabularies, ontologies and other reference resources authorized or adopted by the <a href="http://www.opengeospatial.org">Open Geospatial Consortium</a>.</p>
+        <p>It is based on the UKGovLD <a href="https://github.com/UKGovLD/registry-core/wiki">design</a> for a Linked Data registry.</p>
+      </div>
+      <div class="row">
+        <p>For more information, <a href="mailto:ogc-na@lists.opengeospatial.org">email us</a>.</p>
+      </div>
+    ## container will be closed by footer
+
+#parse("footer.vm")
+
+
