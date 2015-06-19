@@ -124,6 +124,7 @@
 
 #else 
 
+  $lib.reg.addLabels($entity)
   <div class="row">
   	<div class="col-md-6">
   		<h2>Definition</h2>
