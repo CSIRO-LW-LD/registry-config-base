@@ -1,0 +1,34 @@
+      <footer>
+        <div class="pull-right">Developed by <a href="http://www.epimorphics.com/">Epimorphics Ltd</a><br/>
+        Customised by <a href="http://www.csiro.au/">CSIRO Australia</a><br/>
+        More information: <a href="mailto:registry@csiro.au?subject=Comment%20regarding%20registry%20${registry.baseURI}">Contact us</a></div>
+
+#if($entity.getPropertyValue("dct:license"))
+ <p> License : 
+    #foreach($r in $entity.listPropertyValues("dct:license"))
+      #linkfor($r)
+    #end
+ </p>
+#end
+#if($entity.getPropertyValue("dct:rights"))
+ <p> Rights :
+    #foreach($r in $entity.listPropertyValues("dct:rights"))
+      #render($r)
+    #end
+ </p>
+#end
+
+      </footer>
+    </div> <!-- End of container -->
+
+    <script type="text/javascript" src="$uiroot/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="$uiroot/js/jquery.dataTables.min.js"></script>
+    <script src="$uiroot/js/bootstrap-editable.min.js"></script>
+    <script type="text/javascript" src="$uiroot/js/ui.js"></script>
+    #if($extraJS)
+      #foreach($file in $extraJS.split(","))
+        <script type="text/javascript" src="$uiroot/js/$file"></script>
+      #end
+    #end
+  </body>
+</html>
