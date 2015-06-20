@@ -12,8 +12,8 @@
 rr-org:ogc 
     a                         reg:NamespaceForward;
     rdfs:label                "Open Geospatial Consortium"@en;
-    dct:description           "Register item that redirects to www.geospatial.org"@en ;
-    reg:delegationTarget      <http://www.geospatial.org/> ;
+    dct:description           "Register item that redirects to www.opengeospatial.org"@en ;
+    reg:delegationTarget      <http://www.opengeospatial.org/> ;
     reg:forwardingCode        "307" ;
     reg:notation              "ogc" ;
     .
