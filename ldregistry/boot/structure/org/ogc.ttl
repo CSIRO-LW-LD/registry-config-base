@@ -9,11 +9,11 @@
 @prefix facet:   <http://www.epimorphics.com/ontologies/facet#> .
 @prefix rr-org:      <http://registry.example.org/structure/org/> .
 
-rr-org:csiro 
+rr-org:ogc 
     a                         reg:NamespaceForward;
-    rdfs:label                "CSIRO Australia"@en;
-    dct:description           "Register item that redirects to www.csiro.au"@en ;
-    reg:delegationTarget      <http://www.csiro.au/> ;
+    rdfs:label                "Open Geospatial Consortium"@en;
+    dct:description           "Register item that redirects to www.geospatial.org"@en ;
+    reg:delegationTarget      <http://www.geospatial.org/> ;
     reg:forwardingCode        "307" ;
-    reg:notation              "csiro" ;
+    reg:notation              "ogc" ;
     .
