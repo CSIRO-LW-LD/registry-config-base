@@ -53,6 +53,7 @@
       </tbody>
     </table>
 
+    #set($qparam="&query=$query")
     #parse("paging.vm")
 
 #else
