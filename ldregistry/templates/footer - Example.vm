@@ -1,7 +1,7 @@
       <footer>
         <div class="pull-right">Developed by <a href="http://www.epimorphics.com/">Epimorphics Ltd</a><br/>
         Customised by <a href="http://www.csiro.au/">CSIRO Australia</a><br/>
-        More information: <a href="mailto:webmaster@opengeospatial.org?subject=Comment%20regarding%20registry%20${registry.baseURI}">Contact us</a></div>
+        More information: <a href="mailto:owner@example.org?subject=Comment%20regarding%20registry%20${registry.baseURI}">Contact us</a></div>
 
 #if($entity.getPropertyValue("dct:license"))
  <p> License : 
