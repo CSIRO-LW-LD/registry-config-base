@@ -19,6 +19,7 @@ RUN chown -R tomcat7 /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry
 # copy appropriate .war file 
 RUN cp registry-core-1.0.0-20150623.065627-5.war /var/lib/tomcat7/webapps/ROOT.war
 RUN rm /etc/nginx/sites-available/default 
+ADD ./tomcat7 /etc/init.d/tomcat7
 
 #supervisord
 RUN apt-get install -y supervisor
