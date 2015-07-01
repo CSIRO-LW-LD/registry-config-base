@@ -8,10 +8,10 @@
 @prefix ldp:  <http://www.w3.org/ns/ldp#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix ui:   <http://purl.org/linked-data/registry-ui#> .
-@prefix rr-ui:  <http://registry.example.org/structure/ui/> .
-@prefix rr-cat:  <http://registry.example.org/structure/category/> .
-@prefix rr-org:  <http://registry.example.org/structure/org/> .
-@prefix rr-entity:  <http://registry.example.org/structure/entity-type/> .
+@prefix rr-ui:  <http://registry.it.csiro.au/structure/ui/> .
+@prefix rr-cat:  <http://registry.it.csiro.au/structure/category/> .
+@prefix rr-org:  <http://registry.it.csiro.au/structure/org/> .
+@prefix rr-entity:  <http://registry.it.csiro.au/structure/entity-type/> .
 
 <form-templates> a reg:Register ;
     rdfs:label "form templates"@en;

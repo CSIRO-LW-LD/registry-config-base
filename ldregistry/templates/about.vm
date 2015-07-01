@@ -4,13 +4,13 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>My test registry<a href="http://www.example.org"><img class="pull-right" src="/ui/images/Untitled.png" alt="TEST ORGANIZATION" name="logoORG" height="100" border="5"></img></a></h1>
+        <h1>CSIRO Linked Data Registry <a href="http://www.csiro.au"><img class="pull-right" src="/ui/images/CSIRO_Grad_RGB_hr.jpg" alt="CSIRO Australia" name="logoCSIRO" height="100" border="5"></img></a></h1>
       </div>
     </div>
 
     <div class="container">
       <div class="row">
-        <p>This service provides management and public access to codes, codelists, vocabularies, ontologies and other reference resources authorized or adopted by the TEST ORGANIZATION.</p>
+        <p>This service provides management and public access to codes, codelists, vocabularies, ontologies and other reference resources authorized or adopted by <a href="http://www.csiro.au">CSIRO</a>.</p>
         <p>It is based on the UKGovLD <a href="https://github.com/UKGovLD/registry-core/wiki">design</a> for a Linked Data registry.</p>
       </div>
     ## container will be closed by footer

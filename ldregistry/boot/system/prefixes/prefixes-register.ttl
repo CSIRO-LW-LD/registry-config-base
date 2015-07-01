@@ -386,12 +386,12 @@ odrs: a owl:Ontology;
     rdfs:label "rr-ui"@en;
     reg:itemClass owl:Ontology;
     reg:status reg:statusExperimental;
-    reg:definition [ reg:entity <http://registry.example.org/structure/ui/> ];
+    reg:definition [ reg:entity <http://registry.it.csiro.au/structure/ui/> ];
     .
 
-<http://registry.example.org/structure/ui/> a owl:Ontology;
+<http://registry.it.csiro.au/structure/ui/> a owl:Ontology;
     rdfs:label "rr-ui"@en;
     dct:description "rr-ui prefix registration - properties used in the UI of the registry"@en;
     vann:preferredNamespacePrefix "rr-ui";
-    vann:preferredNamespaceUri "http://registry.example.org/structure/ui/";
+    vann:preferredNamespaceUri "http://registry.it.csiro.au/structure/ui/";
     .

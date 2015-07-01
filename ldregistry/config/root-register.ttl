@@ -15,7 +15,7 @@
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 
-@base <http://registry.example.org/> .
+@base <http://registry.it.csiro.au/> .
 
 <> a reg:Register;
     version:currentVersion <>;

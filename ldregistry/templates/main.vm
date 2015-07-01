@@ -1,4 +1,4 @@
-#if($uri)#set($pageTitle="My test registry: $uri")#end
+#if($uri)#set($pageTitle="CSIRO Linked Data Registry: $uri")#end
 #parse("header.vm")
 
 #if(!$uri.isEmpty() || $entity  || ${_browse})
