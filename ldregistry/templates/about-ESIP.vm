@@ -4,7 +4,7 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>ESIP Linked Data Registry <a href="http://www.esipfed.org"><img class="pull-right" src="/ui/images/esip-logo.png" alt="ESIP Federation" name="logo ESIP" height="100" border="5"></img></a></h1>
+        <h1>ESIP Linked Data Registry <a href="http://www.esipfed.org"><img class="pull-right" src="/ui/images/esip-logo.png" alt="ESIP Federation" name="logoESIP" height="100" border="5"></img></a></h1>
       </div>
     </div>
 
