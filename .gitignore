@@ -11,3 +11,4 @@
 /derby.log
 /cookie-jar
 .vagrant
+/war/ROOT.war
