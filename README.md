@@ -1,10 +1,17 @@
 # registry-config-base
 
-Provides configuration, UI templates and bootstraping for a starting registry installation.
+Provides configuration, UI templates and docker deployment for a starting registry installation.
 
 Custom installations can fork this repository then customize the configuration and UI files. This makes it possible to pull in an merge upstream UI fixes made in this base repository.
 
-N.B. Requires registry-core 0.1.1 or higher
+## Deployment 
+
+docker build -t registry .
+docker run --privileged -d -p [desired host port]:80 registry
+
+## Known Issues
+
+ngnix runs but may not be being started correctly by supervisor 
 
 ## Layout
 
