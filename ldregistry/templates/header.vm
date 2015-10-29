@@ -14,7 +14,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-    <title>#if($pageTitle) $pageTitle #else CSIRO Linked Data Registry #end</title>
+    <title>#if($pageTitle) $pageTitle #else My test registry #end</title>
     <link type="text/css" rel="stylesheet" href="$uiroot/css/ui.css" />
     <link type="text/css" rel="stylesheet" href="$uiroot/css/jquery.dataTables.css" />
     <link href="$uiroot/css/bootstrap-editable.css" rel="stylesheet"/>

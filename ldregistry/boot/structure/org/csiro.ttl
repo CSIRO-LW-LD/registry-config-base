@@ -7,7 +7,7 @@
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix facet:   <http://www.epimorphics.com/ontologies/facet#> .
-@prefix rr-org:      <http://registry.it.csiro.au/structure/org/> .
+@prefix rr-org:      <http://registry.example.org/structure/org/> .
 
 rr-org:csiro 
     a                         reg:NamespaceForward;

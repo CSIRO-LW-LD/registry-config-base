@@ -89,9 +89,9 @@
     </ul>
     ## Comment button here if independent pop-up
         #if($register)
-          <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:registry@csiro.au?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20register.%20">Send comment</a></li></ul>
+          <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:owner@example.org?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20register.%20">Send comment</a></li></ul>
         #else 
-          <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:registry@csiro.au?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20registered%20entity.%20">Send comment</a></li></ul>
+          <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:owner@example.org?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20registered%20entity.%20">Send comment</a></li></ul>
         #end
   </div>
 </div>

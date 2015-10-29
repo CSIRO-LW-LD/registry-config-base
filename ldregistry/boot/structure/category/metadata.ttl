@@ -13,15 +13,15 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
-@prefix rr-ui:  <http://registry.it.csiro.au/structure/ui/> .
-@prefix rr-cat:  <http://registry.it.csiro.au/structure/category/> .
-@prefix rr-org:  <http://registry.it.csiro.au/structure/org/> .
-@prefix rr-entity:  <http://registry.it.csiro.au/structure/entity-type/> .
+@prefix rr-ui:  <http://registry.example.org/structure/ui/> .
+@prefix rr-cat:  <http://registry.example.org/structure/category/> .
+@prefix rr-org:  <http://registry.example.org/structure/org/> .
+@prefix rr-entity:  <http://registry.example.org/structure/entity-type/> .
 
 <category> a reg:Register;
     rdfs:label "Categories"@en;
     dct:description "Codes used to classify collections in the registry"@en;
-    reg:owner     rr-org:csiro ;
+    reg:owner     rr-org:EXAMPLE ;
     reg:category  rr-cat:System;
     rr-ui:entityType  rr-entity:Abstract;
     .

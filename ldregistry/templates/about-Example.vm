@@ -4,7 +4,7 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>CSIRO Linked Data Registry<a href="http://www.example.org"><img class="pull-right" src="/ui/images/Untitled.png" alt="TEST ORGANIZATION" name="logoORG" height="100" border="5"></img></a></h1>
+        <h1>Example Linked Data Registry<a href="http://www.example.org"><img class="pull-right" src="/ui/images/Untitled.png" alt="TEST ORGANIZATION" name="logoORG" height="100" border="5"></img></a></h1>
       </div>
     </div>
 
