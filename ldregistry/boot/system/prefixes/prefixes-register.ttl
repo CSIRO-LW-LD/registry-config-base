@@ -176,6 +176,20 @@
     vann:preferredNamespaceUri "http://purl.org/dc/terms/";
     .
 
+<_dcterms> a reg:RegisterItem;
+    rdfs:label "dcterms"@en;
+    dct:description "dcterms prefix registration"@en;
+    reg:itemClass owl:Ontology;
+    reg:status reg:statusStable;
+    reg:definition [ reg:entity <http://purl.org/dc/terms/> ];
+    .
+<http://purl.org/dc/terms/> a owl:Ontology;
+    rdfs:label "dcterms"@en;
+    dct:description "dcterms prefix registration"@en;
+    vann:preferredNamespacePrefix "dcterms";
+    vann:preferredNamespaceUri "http://purl.org/dc/terms/";
+    .
+
 <_reg> a reg:RegisterItem;
     rdfs:label "reg"@en;
     dct:description "reg prefix registration"@en;
