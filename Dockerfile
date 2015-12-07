@@ -21,6 +21,13 @@ RUN cp registry-core-1.0.1-20150809.114212-2.war /var/lib/tomcat7/webapps/ROOT.w
 RUN rm /etc/nginx/sites-available/default 
 ADD ./tomcat7 /etc/default/tomcat7
 #ADD ./tomcat_conf/* /usr/share/tomcat7/bin/
+RUN mkdir -p /backups/config
+RUN mkdir -p /backups/ldregistry
+RUN mkdir -p /backups/old/ 
+RUN echo '#!/bin/bash' >> restartbackup.sh && echo 'service tomcat7 stop && cp -r /var/opt/ldregistry/* /backups/ldregistry && service tomcat7 start' >> restartbackup.sh && chmod +x restartbackup.sh
+RUN echo '#!/bin/bash' >> copybackup.sh && echo 'rm -rf /backups/old/ && cp -r /backups/ldregistry /backups/old' >> copybackup.sh && chmod +x copybackup.sh 
+RUN (crontab -l 2>/dev/null; echo "00 12 * * * /restartbackup.sh") | crontab -
+RUN (crontab -l 2>/dev/null; echo "00 6 * * * /copybackup.sh") | crontab -
 
 #supervisord
 RUN apt-get install -y supervisor
