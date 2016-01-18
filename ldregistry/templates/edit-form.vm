@@ -34,7 +34,7 @@
               #set($isItem = $lib.reg.isItem($target) || $isRegister == "true")  
                                      ## treat register as only patchable
 
-              #set($posturl = $editTarget.uRI.replaceAll("^https?://[^/]*/","/"))
+              #set($posturl = $editTarget.uRI.replaceAll("^https?://[^/]*/","$root/"))
 
                 <p>The values will be converted to Turtle syntax (anything that looks like a URL will be wrapped in  &lt;...&gt;,
                 anything that looks like a general string will be quoted. To force a particular interpretation (e.g. to enter a string

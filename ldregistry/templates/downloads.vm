@@ -1,20 +1,23 @@
+          #set($href = "#if($versionNumber)#linkhref($item):$versionNumber#else#linkhref($entity)#end")
           <h3 class="text-center">Download formats available</h3>
           <table class="table table-condensed">
             <tbody>
               <tr>
-                <td>RDF ttl</td><td><a href="#linkhref($entity)?_format=ttl">plain</a></td><td><a href="#linkhref($entity)?_format=ttl&_view=with_metadata">with metadata</a></td>
+                <td>RDF ttl</td>#if(!$versionNumber)<td><a href="$href?_format=ttl">plain</a></td>#end<td><a href="$href?_format=ttl&_view=with_metadata">with metadata</a></td>
               </tr>
               <tr>  
-                <td>RDF/XML</td><td><a href="#linkhref($entity)?_format=rdf">plain</a></td><td><a href="#linkhref($entity)?_format=rdf&_view=with_metadata">with metadata</a></td>
+                <td>RDF/XML</td>#if(!$versionNumber)<td><a href="$href?_format=rdf">plain</a></td>#end<td><a href="$href?_format=rdf&_view=with_metadata">with metadata</a></td>
               </tr>
               <tr>  
-                <td>JSON-LD</td><td><a href="#linkhref($entity)?_format=jsonld">plain</a></td><td><a href="#linkhref($entity)?_format=jsonld&_view=with_metadata">with metadata</a></td>
+                <td>JSON-LD</td>#if(!$versionNumber)<td><a href="$href?_format=jsonld">plain</a>#end</td><td><a href="$href?_format=jsonld&_view=with_metadata">with metadata</a></td>
               </tr>
               <tr>  
-                <td>CSV</td><td><a href="#linkhref($entity)?_format=csv">plain</a></td><td><a href="#linkhref($entity)?_format=csv&_view=with_metadata">with metadata</a></td>
+                <td>CSV</td>#if(!$versionNumber)<td><a href="$href?_format=csv">plain</a></td>#end<td><a href="$href?_format=csv&_view=with_metadata">with metadata</a></td>
               </tr>
+              #if(!$versionNumber)
               <tr>
-                <td>Export all</td><td><a href="#linkhref($entity)?export">export</a></td><td></td>
+                <td>Export all</td><td><a href="$href?export">export</a></td><td></td>
               </tr>
+              #end
             </tbody>
           </table>

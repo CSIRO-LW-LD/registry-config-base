@@ -5,6 +5,9 @@ $(function() {
     // Move any rhs elements (typically from type-specific templates) to rhs column
     $(".rhs").appendTo("#rhs");
 
+    // Enable datatable processing
+    $('.datatable').dataTable();
+    
     // Query forms run a target query and load the resulting HTML into a data-result element
     var processQueryForms = function() {
         $(".query-form").each(function() {
@@ -84,6 +87,19 @@ $(function() {
                  $(".ajax-error").html("<div class='alert alert-warning'> <button type='button' class='close' data-dismiss='alert'>&times;</button>Action failed: " + error + " - " + xhr.responseText + "</div>");
               }
           });
+    });
+
+    // Simple ajax inline forms that display the returned message
+    $(".ajax-inline-form").ajaxForm({
+      success:
+          function(data, status, xhr){
+             $("#form-result").html(data);
+          },
+
+      error:
+        function(xhr, status, error){
+           $("#form-result").html("<div class='alert'> <button type='button' class='close' data-dismiss='alert'>&times;</button>Action failed: " + error + " - " + xhr.responseText + "</div>");
+        }
     });
 
     // Hierarchicall views

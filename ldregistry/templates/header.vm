@@ -14,10 +14,11 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-    <title>#if($pageTitle) $pageTitle #else My test registry #end</title>
+    <title>#if($pageTitle) $pageTitle #else #if ($registry.configExtensions.registryName) $registry.configExtensions.registryName #else Registry #end #if($uri): $uri#end #end</title>
     <link type="text/css" rel="stylesheet" href="$uiroot/css/ui.css" />
     <link type="text/css" rel="stylesheet" href="$uiroot/css/jquery.dataTables.css" />
     <link href="$uiroot/css/bootstrap-editable.css" rel="stylesheet"/>
+    #if($classView)<link rel="stylesheet" type="text/css" href="$uiroot/css/joint.min.css" />#end
 
     #if($extraCSS)
       #foreach($file in $extraCSS.split(","))
@@ -30,7 +31,8 @@
         <link type="text/css" rel="stylesheet" href="$file" />
       #end
     #end
-    <script type="text/javascript" src="$uiroot/js/jquery-1.10.2.min.js"></script>
+##    <script type="text/javascript" src="$uiroot/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="$uiroot/js/jquery.min.js"></script>
     <script type="text/javascript" src="$uiroot/js/jquery.form.js"></script>
   </head>
 
