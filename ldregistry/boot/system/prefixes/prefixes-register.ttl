@@ -396,6 +396,30 @@ odrs: a owl:Ontology;
     vann:preferredNamespaceUri "http://schema.theodi.org/odrs#" ;
     .
 
+<_qudt> a reg:RegisterItem;
+    reg:status reg:statusStable;
+    reg:definition [ reg:entity qudt: ];
+    .
+
+qudt: a owl:Ontology;
+    rdfs:label "qudt"@en;
+    dct:description "Quantities, Units, Dimensions and Types"@en;
+    vann:preferredNamespacePrefix "qudt";
+    vann:preferredNamespaceUri "http://qudt.org/schema/qudt#" ;
+    .
+
+<_qudt-1.1> a reg:RegisterItem;
+    reg:status reg:statusStable;
+    reg:definition [ reg:entity qudt-1.1: ];
+    .
+
+qudt-1.1: a owl:Ontology;
+    rdfs:label "qudt-1.1"@en;
+    dct:description "Quantities, Units, Dimensions and Types v1.1"@en;
+    vann:preferredNamespacePrefix "qudt-1.1";
+    vann:preferredNamespaceUri "http://qudt.org/1.1/schema/qudt#" ;
+    .
+
 <_rr-ui> a reg:RegisterItem;
     rdfs:label "rr-ui"@en;
     reg:itemClass owl:Ontology;
@@ -409,3 +433,44 @@ odrs: a owl:Ontology;
     vann:preferredNamespacePrefix "rr-ui";
     vann:preferredNamespaceUri "http://registry.example.org/structure/ui/";
     .
+
+<_rr-cat> a reg:RegisterItem;
+    rdfs:label "rr-cat"@en;
+    reg:itemClass owl:Ontology;
+    reg:status reg:statusExperimental;
+    reg:definition [ reg:entity <http://registry.example.org/structure/category/> ];
+    .
+
+<http://registry.example.org/structure/category> a owl:Ontology;
+    rdfs:label "rr-cat"@en;
+    dct:description "rr-cat prefix registration - properties used to categorize resources in the registry"@en;
+    vann:preferredNamespacePrefix "rr-cat";
+    vann:preferredNamespaceUri "http://registry.example.org/structure/category/";
+    .
+<_rr-entity> a reg:RegisterItem;
+    rdfs:label "rr-entity"@en;
+    reg:itemClass owl:Ontology;
+    reg:status reg:statusExperimental;
+    reg:definition [ reg:entity <http://registry.example.org/structure/entity-type/> ];
+    .
+
+<http://registry.example.org/structure/entity-type> a owl:Ontology;
+    rdfs:label "rr-entity"@en;
+    dct:description "rr-entity prefix registration - properties used to classify entity types in the registry"@en;
+    vann:preferredNamespacePrefix "rr-entity";
+    vann:preferredNamespaceUri "http://registry.example.org/structure/entity-type/";
+    .
+<_rr-org> a reg:RegisterItem;
+    rdfs:label "rr-org"@en;
+    reg:itemClass owl:Ontology;
+    reg:status reg:statusExperimental;
+    reg:definition [ reg:entity <http://registry.example.org/structure/org/> ];
+    .
+
+<http://registry.example.org/structure/org> a owl:Ontology;
+    rdfs:label "rr-org"@en;
+    dct:description "rr-org prefix registration - organizations known to the registry"@en;
+    vann:preferredNamespacePrefix "rr-org";
+    vann:preferredNamespaceUri "http://registry.example.org/structure/org/";
+    .
+    

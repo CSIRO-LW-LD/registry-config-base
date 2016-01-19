@@ -7,7 +7,7 @@
 
       #parse("register-list-reserved.vm")
 
-  	  <table class="table table-striped table-bordered">
+  	  <table class="table table-striped table-bordered #if($registry.configExtensions.showRegisterAsDatatable) datatable #end">
   	  	<thead>
   	      <tr>
   	      	<th>Name</th>
@@ -42,7 +42,9 @@
   	  </table>
 
       #set($qparam="&listView=true")
-      #parse("paging.vm")  
+      ##if( ! $registry.configExtensions.showRegisterAsDatatable)
+        #parse("paging.vm")  
+      ##end
 
   	</div>
   </div>

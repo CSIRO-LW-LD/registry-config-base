@@ -1,0 +1,79 @@
+#macro(parseClass $value)
+    #if($value.isAnon())
+        #if ($value.getPropertyValue("owl:intersectionOf"))
+            #set($pcty='intersectionOf')
+            #set($pcmembers=$value.getPropertyValue("owl:intersectionOf").asList())
+        #elseif ($value.getPropertyValue("owl:unionOf"))
+            #set($pcty='unionOf')
+            #set($pcmembers=$value.getPropertyValue("owl:unionOf").asList())
+        #else
+            #set($pcty='simple')
+        #end
+        #if ($pcty == 'simple')
+            '[]'
+        #else
+            { type: '$pcty', members: [
+                #foreach($c in $pcmembers)
+                    #parseClass($c)
+                    #if( $foreach.hasNext ),#end
+                #end
+            ]}
+        #end
+    #else
+        '$value.uRI'
+    #end
+#end
+
+#macro(parseDomainRange $values)
+    #if($values.size() == 1)
+        #parseClass($values[0])
+    #else
+        { type: 'intersectionOf', members: [
+                #foreach($c in $values)
+                    #parseClass($c)
+                    #if( $foreach.hasNext ),#end
+                #end
+            ]}
+    #end
+#end
+
+<script type="text/javascript">
+    var ClassDiagramClasses=[
+        #set($started = false)
+        #foreach($member in $members)
+          #if ($member.hasResourceValue("rdf:type", "owl:Class"))
+            #if($started),#else#set($started=true)#end 
+            {
+                'label' : '$member.name', 
+                'uri' : '$member.uRI',
+                'superClasses' :[
+                    #foreach($c in $member.listPropertyValues("rdfs:subClassOf")) #if(!$c.isAnon())'$c.uRI'#end #if( $foreach.hasNext ),#end #end                
+                ]
+            } 
+          #end
+        #end
+    ];
+    var ClassDiagramObjectProperties = [
+        #set($started = false)
+        #foreach($member in $members)
+          #if ($member.hasResourceValue("rdf:type", "owl:ObjectProperty"))
+            #if($started),#else#set($started=true)#end
+            {
+                'label' : '$member.name', 
+                'uri' : '$member.uRI', 
+                'domain' : #parseDomainRange($member.listPropertyValues("rdfs:domain")),
+                'range'  : #parseDomainRange($member.listPropertyValues("rdfs:range"))
+            } 
+          #end
+        #end
+    ];
+</script>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="paper">
+      </div>        
+    </div>
+  </div>
+
+#set($extraJS="lodash.min.js,backbone-min.js,graphlib.min.js,dagre.min.js,joint.min.js,class-diagram.js")

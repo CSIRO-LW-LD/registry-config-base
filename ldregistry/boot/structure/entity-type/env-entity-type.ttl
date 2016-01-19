@@ -1,0 +1,96 @@
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ui:    <http://purl.org/linked-data/registry-ui#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix ssd:   <http://www.w3.org/ns/sparql-service-description#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dgu:   <http://reference.data.gov.uk/def/reference/> .
+@prefix odrs:  <http://schema.theodi.org/odrs#> .
+@prefix env-ui: <http://registry.example.org/structure/ui/> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix vs:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix version: <http://purl.org/linked-data/version#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix reg:   <http://purl.org/linked-data/registry#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix api:   <http://purl.org/linked-data/api/vocab#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix ldp:   <http://www.w3.org/ns/ldp#> .
+
+<Regions_and_Habitats>
+        a                skos:Concept ;
+        rdfs:label       "Regions and Habitats" ;
+        dct:description  "Code lists used to describe regions, habitats or geographic areas" ;
+        skos:notation    "Regions_and_Habitats" ;
+        skos:prefLabel   "Regions and Habitats" .
+
+<Processes_and_outcomes>
+        a                skos:Concept ;
+        rdfs:label       "Processes and outcomes" ;
+        dct:description  "Code lists used to describe processes, investigations and outcomes" ;
+        skos:notation    "Processes_and_outcomes" ;
+        skos:prefLabel   "Processes and outcomes" .
+
+<Points_and_objects>
+        a                skos:Concept ;
+        rdfs:label       "Points and objects" ;
+        dct:description  "Code lists used to describe points, spatial objects of physical objects such as assets" ;
+        skos:notation    "Points_and_objects" ;
+        skos:prefLabel   "Points and objects" .
+
+<Chemicals>
+        a                skos:Concept ;
+        rdfs:label       "Chemicals" ;
+        dct:description  "Code lists used to describe chemicals or other environmental pressures" ;
+        skos:notation    "Chemicals" ;
+        skos:prefLabel   "Chemicals" .
+
+<Organizations_and_sectors>
+        a                skos:Concept ;
+        rdfs:label       "Organizations and sectors" ;
+        dct:description  "Code lists used to describe organizations, teams and organizational structures" ;
+        skos:notation    "Organizations_and_sectors" ;
+        skos:prefLabel   "Organizations and sectors" .
+
+<Species>
+        a                skos:Concept ;
+        rdfs:label       "Species" ;
+        dct:description  "Code lists used to describe species" ;
+        skos:notation    "Species" ;
+        skos:prefLabel   "Species" .
+
+<Locations_and_Features>
+        a                skos:Concept ;
+        rdfs:label       "Locations and Features" ;
+        dct:description  "Code lists used to describe locations and features" ;
+        skos:notation    "Locations_and_Features" ;
+        skos:prefLabel   "Locations and Features" .
+
+<Observations_and_Measurements>
+        a                skos:Concept ;
+        rdfs:label       "Observations and Measurements" ;
+        dct:description  "Code lists used to describe observations and measurements" ;
+        skos:notation    "Observations_and_Measurements" ;
+        skos:prefLabel   "Observations and Measurements" .
+
+<Properties_and_Attributes>
+        a                skos:Concept ;
+        rdfs:label       "Properties and Attributes" ;
+        dct:description  "Code lists used to describe properties and attributes" ;
+        skos:notation    "Properties_and_Attributes" ;
+        skos:prefLabel   "Properties and Attributes" .
+
+<Sites_and_Sampling>
+        a                skos:Concept ;
+        rdfs:label       "Sites and Sampling" ;
+        dct:description  "Code lists used to describe sites and sampling" ;
+        skos:notation    "Sites_and_Sampling" ;
+        skos:prefLabel   "Sites and Sampling" .
+

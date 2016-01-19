@@ -116,6 +116,14 @@
         <h2>Contents (list view) <a href="$request.requestURL?treeView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a hierarchy"><span class="glyphicon glyphicon-tree-conifer"></span></a></h2>
         #parse("register-list.vm")
       #end
+    #elseif ($registry.configExtensions.showClassDiagrams && $register.hasResourceValue("rdf:type", "owl:Ontology"))
+      #if($classView)
+        <h2>Contents <a href="$request.requestURL?listView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as list">Show as list</a></h2>
+        #parse("register-class-diagram.vm")
+      #else
+        <h2>Contents <a href="$request.requestURL?classView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a class diagram">Show as class diagram</a></h2>
+        #parse("register-list.vm")
+      #end
     #else
       <h2>Contents</h2>
       #parse("register-list.vm")
@@ -125,8 +133,10 @@
 #else 
 
   $lib.reg.addLabels($entity)
+
   <div class="row">
-  	<div class="col-md-6">
+
+  	<div class=#if($registry.configExtensions.suppressLinkView) "col-md-12" #else "col-md-6" #end>
   		<h2>Definition</h2>
   		#if($template)
           #parse($template)
@@ -134,9 +144,11 @@
   		  #restable($entity, "table-striped table-condensed table-bordered")
   		#end
   	</div>
+    #if( ! $registry.configExtensions.suppressLinkView)
     <div class="col-md-offset-1 col-md-5">
       #parse("links-render.vm")
     </div>
+    #end
   </div>
 #end
 
