@@ -1,0 +1,116 @@
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ui:    <http://purl.org/linked-data/registry-ui#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix ssd:   <http://www.w3.org/ns/sparql-service-description#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dgu:   <http://reference.data.gov.uk/def/reference/> .
+@prefix odrs:  <http://schema.theodi.org/odrs#> .
+@prefix rr-ui: <http://example.org/registry/structure/ui/> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix vs:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix version: <http://purl.org/linked-data/version#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix reg:   <http://purl.org/linked-data/registry#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix api:   <http://purl.org/linked-data/api/vocab#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix ldp:   <http://www.w3.org/ns/ldp#> .
+
+<Marine_and_Coast>
+        a                skos:Concept ;
+        rdfs:label       "Marine and Coast" ;
+        dct:description  "Code lists related to the policy area: Marine and Coast" ;
+        skos:notation    "Marine_and_Coast" ;
+        skos:prefLabel   "Marine and Coast" .
+
+<Water>
+        a                skos:Concept ;
+        rdfs:label       "Water" ;
+        dct:description  "Code lists related to the policy area: Water" ;
+        skos:notation    "Water" ;
+        skos:prefLabel   "Water" .
+
+<Sustainable_development>
+        a                skos:Concept ;
+        rdfs:label       "Sustainable development" ;
+        dct:description  "Code lists related to the policy area: Sustainable development" ;
+        skos:notation    "Sustainable_development" ;
+        skos:prefLabel   "Sustainable development" .
+
+<Industry>
+        a                skos:Concept ;
+        rdfs:label       "Industry" ;
+        dct:description  "Code lists related to the policy area: Industry" ;
+        skos:notation    "Industry" ;
+        skos:prefLabel   "Industry" .
+
+<Noise>
+        a                skos:Concept ;
+        rdfs:label       "Noise" ;
+        dct:description  "Code lists related to the policy area: Noise" ;
+        skos:notation    "Noise" ;
+        skos:prefLabel   "Noise" .
+
+<Soil>
+        a                skos:Concept ;
+        rdfs:label       "Soil" ;
+        dct:description  "Code lists related to the policy area: Soil" ;
+        skos:notation    "Soil" ;
+        skos:prefLabel   "Soil" .
+
+<Resource_efficiency>
+        a                skos:Concept ;
+        rdfs:label       "Resource efficiency" ;
+        dct:description  "Code lists related to the policy area: Resource efficiency" ;
+        skos:notation    "Resource_efficiency" ;
+        skos:prefLabel   "Resource efficiency" .
+
+<Nature_and_Biodiversity>
+        a                skos:Concept ;
+        rdfs:label       "Nature and Biodiversity" ;
+        dct:description  "Code lists related to the policy area: Nature and Biodiversity" ;
+        skos:notation    "Nature_and_Biodiversity" ;
+        skos:prefLabel   "Nature and Biodiversity" .
+
+<Waste>
+        a                skos:Concept ;
+        rdfs:label       "Waste" ;
+        dct:description  "Code lists related to the policy area: Waste" ;
+        skos:notation    "Waste" ;
+        skos:prefLabel   "Waste" .
+
+<Air>
+        a                skos:Concept ;
+        rdfs:label       "Air" ;
+        dct:description  "Code lists related to the policy area: Air" ;
+        skos:notation    "Air" ;
+        skos:prefLabel   "Air" .
+
+<Chemicals>
+        a                skos:Concept ;
+        rdfs:label       "Chemicals" ;
+        dct:description  "Code lists related to the policy area: Chemicals" ;
+        skos:notation    "Chemicals" ;
+        skos:prefLabel   "Chemicals" .
+
+<International_issues>
+        a                skos:Concept ;
+        rdfs:label       "International issues" ;
+        dct:description  "Code lists related to the policy area: International issues" ;
+        skos:notation    "International_issues" ;
+        skos:prefLabel   "International issues" .
+
+<Land_Use>
+        a                skos:Concept ;
+        rdfs:label       "Land Use" ;
+        dct:description  "Code lists related to the policy area: Land Use" ;
+        skos:notation    "Land_Use" ;
+        skos:prefLabel   "Land Use" .

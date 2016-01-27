@@ -8,10 +8,10 @@
 @prefix ldp:  <http://www.w3.org/ns/ldp#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix ui:   <http://purl.org/linked-data/registry-ui#> .
-@prefix er-ui:  <http://environment.data.gov.uk/registry/structure/ui/> .
-@prefix er-cat:  <http://environment.data.gov.uk/registry/structure/category/> .
-@prefix er-org:  <http://environment.data.gov.uk/registry/structure/org/> .
-@prefix er-entity:  <http://environment.data.gov.uk/registry/structure/entity-type/> .
+@prefix er-ui:  <http://example.org/registry/structure/ui/> .
+@prefix er-cat:  <http://example.org/registry/structure/category/> .
+@prefix er-org:  <http://example.org/registry/structure/org/> .
+@prefix er-entity:  <http://example.org/registry/structure/entity-type/> .
 
 <form-templates> a reg:Register ;
     rdfs:label "form templates"@en;
