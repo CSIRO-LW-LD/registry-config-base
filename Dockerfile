@@ -17,7 +17,8 @@ RUN cp ~/registry-deploy/install/sudoers.conf /etc/sudoers.d/ldregistry
 RUN rm -rf /var/lib/tomcat7/webapps/* 
 RUN chown -R tomcat7 /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry
 # copy appropriate .war file 
-RUN cp registry-core-1.1.0.war /var/lib/tomcat7/webapps/root.war
+# RUN cp registry-core-1.1.0.war /var/lib/tomcat7/webapps/ROOT.war
+RUN cp registry-core-1.1.0.war /var/lib/tomcat7/webapps/registry.war
 RUN rm /etc/nginx/sites-available/default 
 ADD ./tomcat7 /etc/default/tomcat7
 #ADD ./tomcat_conf/* /usr/share/tomcat7/bin/

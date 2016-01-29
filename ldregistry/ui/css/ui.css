@@ -1,6 +1,132 @@
 /**
  * UI additions to adapt bootstrap for registry UI. Dave Reynolds, 2013
  */
+/**
+ * Additional tweaks for BA colours. Simon Cox, 2015
+ */
+
+/* ============= start of BA colour customization ============ */
+/* ------links------ */
+a {
+        color:#9f592b;
+        text-decoration:none
+}
+a:hover, 
+a:focus {
+        color:#9f592b;
+        text-decoration:underline
+}
+
+/* -------status flags------- */
+.label-primary {
+        background-color:#0093cd
+}
+.label-success {
+        background-color:#0093cd
+}
+.btn-success {
+        color:#fff;
+        background-color:#0093cd;
+        border-color:#0093cd
+}
+.btn-success:hover,.btn-success:focus,.btn-success:active,.btn-success.active,.open .dropdown-toggle.btn-success {
+        color:#fff;
+        background-color:#00537f;
+        border-color:#11866f
+}
+/* -------main navbar--------- */
+.navbar-default {
+        background-color:#00537f;
+        border-color:#202d3b
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+        color:#0093cd;
+        background-color:transparent
+}
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+        color:#0093cd;
+        background-color:transparent
+}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+        color:#fff;
+        background-color:#00537f
+}
+.navbar-default .navbar-nav>.dropdown>a:hover .caret,
+.navbar-default .navbar-nav>.dropdown>a:focus .caret {
+        border-top-color:#00537f;
+        border-bottom-color:#00537f
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
+        color:#00537f;
+        background-color:transparent
+}
+.navbar-default .navbar-link:hover {
+        color:#0093cd
+}
+.navbar-inverse {
+        background-color:#00537f;
+        border-color:#00537f
+}
+
+/* -----------paging---------- */
+.pagination>li>a,
+.pagination>li>span {
+        position:relative;
+        float:left;
+        padding:10px 15px;
+        margin-left:-1px;
+        line-height:1.428571429;
+        text-decoration:none;
+        background-color:#0093cd;
+        border:1px solid transparent
+}
+.pagination>li>a:hover,
+.pagination>li>span:hover,.pagination>li>a:focus,
+.pagination>li>span:focus {
+        background-color:#00537f
+}
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+        z-index:2;
+        color:#fff;
+        cursor:default;
+        background-color:#00537f;
+        border-color:#00537f
+}
+.pagination>.disabled>span,
+.pagination>.disabled>span:hover,
+.pagination>.disabled>span:focus,
+.pagination>.disabled>a,
+.pagination>.disabled>a:hover,
+.pagination>.disabled>a:focus {
+        color:#ecf0f1;
+        cursor:not-allowed;
+        background-color:#0093cd;
+        border-color:transparent
+}
+
+/* --------table striping-------- */
+
+table.dataTable tr.odd { background-color: #E2E4FF; }
+table.dataTable tr.even { background-color: white; }
+
+table.dataTable tr.odd td.sorting_1 { background-color: #b3e0ff; }
+table.dataTable tr.odd td.sorting_2 { background-color: #DADCFF; }
+table.dataTable tr.odd td.sorting_3 { background-color: #E0E2FF; }
+table.dataTable tr.even td.sorting_1 { background-color: #ccebff; }
+table.dataTable tr.even td.sorting_2 { background-color: #F2F3FF; }
+table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
+
+/* ============= end of BA colour customization ============ */
 
 body {
         min-height: 600px;

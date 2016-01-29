@@ -12,15 +12,24 @@
 @prefix vs:   <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix api:  <http://purl.org/linked-data/api/vocab#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
-@prefix er-ui:  <http://example.org/registry/structure/ui/> .
-@prefix er-cat:  <http://example.org/registry/structure/category/> .
-@prefix er-org:  <http://example.org/registry/structure/org/> .
-@prefix er-entity:  <http://example.org/registry/structure/entity-type/> .
+@prefix ui:   <http://purl.org/linked-data/registry-ui#> .
+@prefix qb:      <http://purl.org/linked-data/cube#> .
+@prefix bibo:      <http://purl.org/ontology/bibo/> .
 
-<system> a reg:Register;
-    rdfs:label "System register"@en;
-    dct:description "Internal registers which are used to control system operation"@en;
-    reg:containedItemClass reg:Register;
-    reg:category  er-cat:System;
+[] a reg:RegisterItem;
+		reg:notation "bibo";
+    reg:itemClass owl:Ontology;
+    reg:status reg:statusStable;
+    reg:definition [ reg:entity <http://purl.org/ontology/bibo/> ];
+    .
+    
+<http://purl.org/ontology/bibo/> a owl:Ontology;
+    rdfs:label "bibo"@en;
+    dct:description "Bibliographic Ontology"@en;
+    vann:preferredNamespacePrefix "bibo";
+    vann:preferredNamespaceUri "http://purl.org/ontology/bibo/";
     .

@@ -81,7 +81,6 @@
         #if(!$register)
           <li><a href="#historyTab" data-toggle="tab">History</a></li>
         #end
-        ## Comment button here if implemented as another tab
         #if($subject.isAuthenticated())
           <li><a href="#adminTab">Admin</span></a></li>
         #end
@@ -93,6 +92,7 @@
         #else 
           <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:owner@example.org?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20registered%20entity.%20">Send comment</a></li></ul>
         #end
+    ## /
   </div>
 </div>
 

@@ -1,0 +1,69 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix version:  <http://purl.org/linked-data/version#> .
+@prefix ldp:  <http://www.w3.org/ns/ldp#> .
+@prefix reg:  <http://purl.org/linked-data/registry#> .
+@prefix ui:   <http://purl.org/linked-data/registry-ui#> .
+
+
+<concept-with-notes> a ui:FormTemplate;
+    rdfs:label "ConceptWithNotes"@en;
+    ui:tooltip "Define a single skos:Concept, with notes"@en;
+    ui:prototype [a skos:Concept];
+    ui:formFields (
+      [a ui:FormField; rdfs:label "id"; skos:notation "id";
+            ui:tooltip "ID for concept in register (required)"@en;
+            ui:property reg:notation;
+            ui:required true ;
+            ui:fieldType ui:labelField ]
+      [a ui:FormField; rdfs:label "label"; skos:notation "label";
+            ui:tooltip "Label for the concept (required)"@en;
+            ui:property rdfs:label;
+            ui:required true ;
+            ui:fieldType ui:labelField ]
+      [a ui:FormField; rdfs:label "preferred label"; skos:notation "prefLabel";
+            ui:tooltip "Preferred label for the concept - only one per language"@en;
+            ui:property skos:prefLabel;
+            ui:fieldType ui:labelField]
+      [a ui:FormField; rdfs:label "alternative label"; skos:notation "altLabel";
+            ui:tooltip "Alternative label for the concept"@en;
+            ui:property skos:altLabel;
+            ui:fieldType ui:labelField]
+      [a ui:FormField; rdfs:label "description or definition"; skos:notation "description";
+            ui:tooltip "Description of the concept (recommended)"@en;
+            ui:property dct:description;
+            ui:fieldType ui:textField]
+      [a ui:FormField; rdfs:label "source of definition (text or URI)"; skos:notation "source";
+            ui:tooltip "Source of definition (text citation or <URI-reference>)"@en;
+            ui:property dct:source;
+            ui:fieldType ui:textField]
+      [a ui:FormField; rdfs:label "acronym, code or symbol"; skos:notation "notation";
+            ui:tooltip "Code, serial number or acronym for the concept"@en;
+            ui:property skos:notation;
+            ui:fieldType ui:labelField]
+      [a ui:FormField; rdfs:label "scope note"; skos:notation "scopeNote";
+            ui:tooltip "Scope note"@en;
+            ui:property skos:scopeNote;
+            ui:fieldType ui:textField]
+      [a ui:FormField; rdfs:label "change note"; skos:notation "changeNote";
+            ui:tooltip "Change note"@en;
+            ui:property skos:changeNote;
+            ui:fieldType ui:textField]
+      [a ui:FormField; rdfs:label "has broader concept"; skos:notation "broader";
+            ui:tooltip "Has broader concept in this vocabulary (recommended if known)."@en;
+            ui:property skos:broader;
+            ui:fieldType ui:anyURIField]
+      [a ui:FormField; rdfs:label "has narrower concept"; skos:notation "narrower";
+            ui:tooltip "Has narrower concept in this vocabulary."@en;
+            ui:property skos:narrower;
+            ui:fieldType ui:anyURIField]
+      [a ui:FormField; rdfs:label "authority for definition (as a link)"; skos:notation "isDefinedBy";
+            ui:tooltip "Authority for definition (<URI-reference>)"@en;
+            ui:property rdfs:isDefinedBy;
+            ui:fieldType ui:anyURIField]
+    );
+    .

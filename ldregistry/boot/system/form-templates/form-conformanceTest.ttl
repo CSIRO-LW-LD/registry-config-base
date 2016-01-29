@@ -1,0 +1,49 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix version:  <http://purl.org/linked-data/version#> .
+@prefix ldp:  <http://www.w3.org/ns/ldp#> .
+@prefix reg:  <http://purl.org/linked-data/registry#> .
+@prefix ui:   <http://purl.org/linked-data/registry-ui#> .
+@prefix spec:		<http://www.opengis.net/ont/modspec#> .
+
+<conformanceTest> a ui:FormTemplate;
+    rdfs:label "ConformanceTest"@en;
+    ui:tooltip "Define a single Conformance Test"@en;
+    ui:prototype [a spec:ConformanceTest];
+    ui:formFields (
+      [a ui:FormField; rdfs:label "id"; skos:notation "id";
+            ui:tooltip "ID ('notation') for test in context of register"@en;
+            ui:property reg:notation;
+            ui:required true ;
+            ui:fieldType ui:labelField]
+      [a ui:FormField; rdfs:label "requirement"; skos:notation "requirement";
+            ui:tooltip "Requirement that is tested by this conformance test"@en;
+            ui:property spec:requirement;
+            ui:required true ;
+            ui:fieldType ui:anyURIField]
+      [a ui:FormField; rdfs:label "label"; skos:notation "label";
+            ui:tooltip "Label for the test"@en;
+            ui:property rdfs:label;
+            ui:required true ;
+            ui:fieldType ui:labelField]
+      [a ui:FormField; rdfs:label "purpose of test"; skos:notation "purpose";
+            ui:tooltip "Purpose of the test"@en;
+            ui:property spec:purpose;
+            ui:required true ;
+            ui:fieldType ui:textField]
+      [a ui:FormField; rdfs:label "method for test"; skos:notation "method";
+            ui:tooltip "Test method"@en;
+            ui:property spec:method;
+            ui:required true ;
+            ui:fieldType ui:textField]
+      [a ui:FormField; rdfs:label "type"; skos:notation "type";
+            ui:tooltip "Test type (basic, capability)"@en;
+            ui:property spec:testType;
+            ui:required true ;
+            ui:fieldType ui:textField]
+    );
+    .

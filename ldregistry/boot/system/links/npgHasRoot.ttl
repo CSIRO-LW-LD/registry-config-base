@@ -8,13 +8,10 @@
 @prefix ldp:  <http://www.w3.org/ns/ldp#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix ui:   <http://purl.org/linked-data/registry-ui#> .
-@prefix er-ui:  <http://example.org/registry/structure/ui/> .
-@prefix er-cat:  <http://example.org/registry/structure/category/> .
-@prefix er-org:  <http://example.org/registry/structure/org/> .
-@prefix er-entity:  <http://example.org/registry/structure/entity-type/> .
+@prefix npg: <http://ns.nature.com/terms/> .
 
-<typed-templates> a reg:Register ;
-    rdfs:label "typed templates"@en;
-    dct:description "System register containing collection of templates which can be used to provide custom rendering of resources of a specific type"@en;
-    reg:category  er-cat:System;
+<npgHasRoot> a ui:PathTemplate;
+    rdfs:label "Has root subject"@en;
+    dct:description "UI template for finding npg:hasRoot links"@en;
+    ui:path "npg:hasRoot";
     .
