@@ -20,7 +20,7 @@
 
 <structure> a reg:Register;
     rdfs:label "Structure"@en;
-    dct:description "Code lists used to aid organizing and presenting the Environment registry contents."@en;
+    dct:description "Code lists used to aid organizing and presenting the registry contents."@en;
     reg:containedItemClass reg:Register;
     reg:owner     er-org:department-for-environment-food-rural-affairs ;
     reg:category  er-cat:System;
