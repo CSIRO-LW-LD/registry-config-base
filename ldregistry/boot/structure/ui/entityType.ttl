@@ -7,9 +7,9 @@
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix facet:   <http://www.epimorphics.com/ontologies/facet#> .
-@prefix er-ui:      <http://example.org/registry/structure/ui/> .
+@prefix rr-ui:      <http://example.org/registry/structure/ui/> .
 
-er-ui:entityType a owl:ObjectProperty;
+rr-ui:entityType a owl:ObjectProperty;
     rdfs:label "category - Entity Type"@en;
     rdfs:description "Property use to categorize the type of entity a code list describes"@en;
     .
