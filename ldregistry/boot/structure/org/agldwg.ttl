@@ -10,7 +10,7 @@
 
 rr-org:AGLDWG 
     a                         reg:NamespaceForward;
-    rdfs:label                "Australian Government Linked Data WOrking Group"@en;
+    rdfs:label                "Australian Government Linked Data Working Group"@en;
     dct:description           "Register item that redirects to linked.data.gov.au"@en ;
     reg:delegationTarget      <http://linked.data.gov.au> ;
     reg:forwardingCode        "307" ;
