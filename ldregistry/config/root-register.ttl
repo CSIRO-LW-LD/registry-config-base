@@ -15,11 +15,11 @@
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 
-@base <http://example.org/registry/> .
+@base <http://environment.data.gov.au/> .
 
 <> a reg:Register;
     version:currentVersion <>;
-    rdfs:label "registry"@en;
+    rdfs:label "root register"@en;
     dct:description "Register representing the root of the registry tree."@en;
     reg:containedItemClass reg:Register, skos:Collection, skos:ConceptScheme;
     owl:versionInfo 1;
@@ -27,7 +27,7 @@
 
 <_> a reg:RegisterItem;
     version:currentVersion <_>;
-    rdfs:label "root"@en;
+    rdfs:label "root register"@en;
     dct:description "Register representing the root of the registry tree."@en;
     reg:status reg:statusStable;
     reg:itemClass reg:Register;

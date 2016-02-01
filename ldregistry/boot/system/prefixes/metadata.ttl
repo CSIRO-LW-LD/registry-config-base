@@ -10,10 +10,10 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix ui:   <http://purl.org/linked-data/registry-ui#> .
-@prefix rr-ui:  <http://example.org/registry/structure/ui/> .
-@prefix rr-cat:  <http://example.org/registry/structure/category/> .
-@prefix rr-org:  <http://example.org/registry/structure/org/> .
-@prefix rr-entity:  <http://example.org/registry/structure/entity-type/> .
+@prefix rr-ui:  <http://environment.data.gov.au/structure/ui/> .
+@prefix rr-cat:  <http://environment.data.gov.au/structure/category/> .
+@prefix rr-org:  <http://environment.data.gov.au/structure/org/> .
+@prefix rr-entity:  <http://environment.data.gov.au/structure/entity-type/> .
 
 <prefixes> a reg:Register;
     rdfs:label "prefixes"@en;

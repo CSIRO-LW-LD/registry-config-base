@@ -371,12 +371,12 @@ odrs: a owl:Ontology;
     rdfs:label "env-ui"@en;
     reg:itemClass owl:Ontology;
     reg:status reg:statusExperimental;
-    reg:definition [ reg:entity <http://example.org/registry/structure/ui/> ];
+    reg:definition [ reg:entity <http://environment.data.gov.au/structure/ui/> ];
     .
 
-<http://example.org/registry/structure/ui/> a owl:Ontology;
+<http://environment.data.gov.au/structure/ui/> a owl:Ontology;
     rdfs:label "env-ui"@en;
     dct:description "env-ui prefix registration - properties used in the UI of the environment registry"@en;
     vann:preferredNamespacePrefix "env-ui";
-    vann:preferredNamespaceUri "http://example.org/registry/structure/ui/";
+    vann:preferredNamespaceUri "http://environment.data.gov.au/structure/ui/";
     .

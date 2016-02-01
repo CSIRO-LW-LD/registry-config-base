@@ -5,7 +5,7 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dgu:   <http://reference.data.gov.uk/def/reference/> .
 @prefix odrs:  <http://schema.theodi.org/odrs#> .
-@prefix rr-ui: <http://example.org/registry/structure/ui/> .
+@prefix rr-ui: <http://environment.data.gov.au/structure/ui/> .
 @prefix void:  <http://rdfs.org/ns/void#> .
 @prefix vann:  <http://purl.org/vocab/vann/> .
 @prefix vs:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
@@ -24,7 +24,7 @@
 @prefix cc:    <http://creativecommons.org/ns#> .
 @prefix ldp:   <http://www.w3.org/ns/ldp#> .
 
-<http://example.org/registry/structure/category/System>
+<http://environment.data.gov.au/structure/category/System>
         a                skos:Concept ;
         rdfs:label       "System" ;
         dct:description  "Codes related to internal operation of the registry itself" ;

@@ -13,15 +13,15 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
-@prefix rr-ui:  <http://example.org/registry/structure/ui/> .
-@prefix rr-cat:  <http://example.org/registry/structure/category/> .
-@prefix rr-org:  <http://example.org/registry/structure/org/> .
-@prefix rr-entity:  <http://example.org/registry/structure/entity-type/> .
+@prefix rr-ui:  <http://environment.data.gov.au/structure/ui/> .
+@prefix rr-cat:  <http://environment.data.gov.au/structure/category/> .
+@prefix rr-org:  <http://environment.data.gov.au/structure/org/> .
+@prefix rr-entity:  <http://environment.data.gov.au/structure/entity-type/> .
 
 <structure> a reg:Register;
     rdfs:label "Structure"@en;
     dct:description "Code lists used to aid organizing and presenting the registry contents."@en;
     reg:containedItemClass reg:Register;
-    reg:owner     rr-org:EXAMPLE ;
+    reg:owner     rr-org:AGLDWG ;
     reg:category  rr-cat:System;
     .

@@ -6,7 +6,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
-@prefix rr-org:      <http://example.org/registry/structure/org/> .
+@prefix rr-org:      <http://environment.data.gov.au/structure/org/> .
 
 rr-org:ga 
     a                         reg:NamespaceForward;

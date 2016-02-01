@@ -8,11 +8,11 @@
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix rr-org:      <http://environment.data.gov.au/structure/org/> .
 
-rr-org:deptenv 
+rr-org:AGLDWG 
     a                         reg:NamespaceForward;
-    rdfs:label                "Department of the Environment"@en;
-    dct:description           "Register item that redirects to www.environment.gov.au/"@en ;
-    reg:delegationTarget      <https://www.environment.gov.au/> ;
+    rdfs:label                "Australian Government Linked Data WOrking Group"@en;
+    dct:description           "Register item that redirects to linked.data.gov.au"@en ;
+    reg:delegationTarget      <http://linked.data.gov.au> ;
     reg:forwardingCode        "307" ;
-    reg:notation              "deptenv" ;
+    reg:notation              "AGLDWG" ;
     .

@@ -7,7 +7,7 @@
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix facet:   <http://www.epimorphics.com/ontologies/facet#> .
-@prefix rr-ui:      <http://example.org/registry/structure/ui/> .
+@prefix rr-ui:      <http://environment.data.gov.au/structure/ui/> .
 
 rr-ui:baseCatFacets
     facet:facets (rr-ui:catFacet rr-ui:ownerFacet rr-ui:entityFacet );
@@ -25,7 +25,7 @@ rr-ui:catFacet a facet:Facet;
 rr-ui:entityFacet a facet:Facet;
     rdfs:label "Entity";
     skos:notation "entity";
-    facet:query "<http://purl.org/linked-data/version#currentVersion>/<http://purl.org/linked-data/registry#definition>/<http://purl.org/linked-data/registry#entity>/<http://purl.org/linked-data/version#currentVersion>/<http://example.org/registry/structure/ui/entityType>" ;
+    facet:query "<http://purl.org/linked-data/version#currentVersion>/<http://purl.org/linked-data/registry#definition>/<http://purl.org/linked-data/registry#entity>/<http://purl.org/linked-data/version#currentVersion>/<http://environment.data.gov.au/structure/ui/entityType>" ;
     .
 
 rr-ui:ownerFacet  a facet:Facet;
