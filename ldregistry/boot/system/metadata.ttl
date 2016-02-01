@@ -13,14 +13,14 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
-@prefix er-ui:  <http://example.org/registry/structure/ui/> .
-@prefix er-cat:  <http://example.org/registry/structure/category/> .
-@prefix er-org:  <http://example.org/registry/structure/org/> .
-@prefix er-entity:  <http://example.org/registry/structure/entity-type/> .
+@prefix rr-ui:  <http://example.org/registry/structure/ui/> .
+@prefix rr-cat:  <http://example.org/registry/structure/category/> .
+@prefix rr-org:  <http://example.org/registry/structure/org/> .
+@prefix rr-entity:  <http://example.org/registry/structure/entity-type/> .
 
 <system> a reg:Register;
     rdfs:label "System register"@en;
     dct:description "Internal registers which are used to control system operation"@en;
     reg:containedItemClass reg:Register;
-    reg:category  er-cat:System;
+    reg:category  rr-cat:System;
     .
