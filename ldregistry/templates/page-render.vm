@@ -20,7 +20,7 @@
 
 <div class="row">
   <div id="description" class="col-md-10">
-    <h2>#if($register)Register: #{else}Entry: #end $entity.name #if($versionNumber)- showing version $versionNumber#end</h2>
+    <h2>#if($register)List: #{else}Item: #end $entity.name #if($versionNumber)- showing version $versionNumber#end</h2>
     <p>  <strong>URI:</strong> <a href="#linkhref($entity)" title="$entity.uRI">$entity.uRI</a> </p>
     <p> #description($entity, "<p><em>no description supplied</em></p>") </p>
   </div>
