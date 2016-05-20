@@ -1,0 +1,25 @@
+#parse("header.vm")
+#set($nav="admin")
+#parse("navbar.vm")
+
+    <div class="container">
+    #if($subject.isAuthenticated() && $subject.hasRole("administrator"))
+
+        <h2>Regenerate text index</h2>
+
+          <div class="row">
+            <form class="form-inline ajax-inline-form col-md-12" action="$root/system/text-reindex" method="post">
+              <input type="submit" value="Reindex" class="btn" />
+            </form>
+          </div>
+          <div class="row">
+            <p id="form-result" class="col-md-12"></p>
+          </div>
+
+    #else
+        <h3>Sorry you must be logged in as an administrator to access this page</h3>
+    #end
+
+    ## container will be closed by footer
+
+#parse("footer.vm")

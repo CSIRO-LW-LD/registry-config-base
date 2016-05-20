@@ -4,12 +4,9 @@
 ## List the link templates we know about
 ## TODO lift into a macro
 
-<h2>Links</h2>
-
 #set($response=$registry.perform("Read","system/links?_view=with_metadata&status=any", $requestor))
-#if($response.status == 404 || $response.status >= 500)
-  <div class="alert alert-danger">Problem accessing system/links register</div>
-#else
+#if($response.status != 404 && $response.status < 500)
+  <h2>Links</h2>
   #set($started=false)
   #set($model=$response.entity)
   #set($target="$registry.baseURI/system/links")

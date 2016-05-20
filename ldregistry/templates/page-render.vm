@@ -20,7 +20,7 @@
 
 <div class="row">
   <div id="description" class="col-md-10">
-    <h2>#if($register)Register: #{else}Entry: #end $entity.name #if($versionNumber)- showing version $versionNumber#end</h2>
+    <h2>#if($register)List: #{else}Item: #end $entity.name #if($versionNumber)- showing version $versionNumber#end</h2>
     <p>  <strong>URI:</strong> <a href="#linkhref($entity)" title="$entity.uRI">$entity.uRI</a> </p>
     <p> #description($entity, "<p><em>no description supplied</em></p>") </p>
   </div>
@@ -81,7 +81,6 @@
         #if(!$register)
           <li><a href="#historyTab" data-toggle="tab">History</a></li>
         #end
-        ## Comment button here if implemented as another tab
         #if($subject.isAuthenticated())
           <li><a href="#adminTab">Admin</span></a></li>
         #end
@@ -89,10 +88,11 @@
     </ul>
     ## Comment button here if independent pop-up
         #if($register)
-          <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:owner@example.org?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20register.%20">Send comment</a></li></ul>
+          <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:registry@csiro.au?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20register.%20">Send comment</a></li></ul>
         #else 
-          <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:owner@example.org?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20registered%20entity.%20">Send comment</a></li></ul>
+          <ul class="nav nav-pills nav-stacked" ><li><a href="mailto:registry@csiro.au?subject=Comment%20regarding%20${entity.uRI}&body=I%20would%20like%20to%20make%20a%20suggestion%20regarding%20this%20registered%20entity.%20">Send comment</a></li></ul>
         #end
+    ## /
   </div>
 </div>
 
@@ -116,6 +116,14 @@
         <h2>Contents (list view) <a href="$request.requestURL?treeView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a hierarchy"><span class="glyphicon glyphicon-tree-conifer"></span></a></h2>
         #parse("register-list.vm")
       #end
+    #elseif ($registry.configExtensions.showClassDiagrams && $register.hasResourceValue("rdf:type", "owl:Ontology"))
+      #if($classView)
+        <h2>Contents <a href="$request.requestURL?listView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as list">Show as list</a></h2>
+        #parse("register-class-diagram.vm")
+      #else
+        <h2>Contents <a href="$request.requestURL?classView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a class diagram">Show as class diagram</a></h2>
+        #parse("register-list.vm")
+      #end
     #else
       <h2>Contents</h2>
       #parse("register-list.vm")
@@ -125,8 +133,10 @@
 #else 
 
   $lib.reg.addLabels($entity)
+
   <div class="row">
-  	<div class="col-md-6">
+
+  	<div class=#if($registry.configExtensions.suppressLinkView) "col-md-12" #else "col-md-6" #end>
   		<h2>Definition</h2>
   		#if($template)
           #parse($template)
@@ -134,9 +144,11 @@
   		  #restable($entity, "table-striped table-condensed table-bordered")
   		#end
   	</div>
+    #if( ! $registry.configExtensions.suppressLinkView)
     <div class="col-md-offset-1 col-md-5">
       #parse("links-render.vm")
     </div>
+    #end
   </div>
 #end
 

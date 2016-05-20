@@ -13,10 +13,10 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix reg:  <http://purl.org/linked-data/registry#> .
-@prefix rr-ui:  <http://registry.example.org/structure/ui/> .
-@prefix rr-cat:  <http://registry.example.org/structure/category/> .
-@prefix rr-org:  <http://registry.example.org/structure/org/> .
-@prefix rr-entity:  <http://registry.example.org/structure/entity-type/> .
+@prefix rr-ui:  <http://environment.data.gov.au/structure/ui/> .
+@prefix rr-cat:  <http://environment.data.gov.au/structure/category/> .
+@prefix rr-org:  <http://environment.data.gov.au/structure/org/> .
+@prefix rr-entity:  <http://environment.data.gov.au/structure/entity-type/> .
 
 <links> a reg:Register;
     rdfs:label "Link definitions"@en;

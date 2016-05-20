@@ -1,0 +1,27 @@
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<_owl-ontology> a reg:RegisterItem ;
+	reg:definition [
+		reg:entity owl:Ontology ;
+	] ;
+  rdfs:label "Ontology" ;
+  dct:description "The class of ontologies." ;
+  ldp:membershipPredicate dct:hasPart ;
+  ldp:membershipPredicate rdfs:member ;
+  reg:status reg:statusStable;
+.
+
+owl:Ontology
+      a       rdfs:Class ;
+      dct:description "The class of ontologies." ;
+      rdfs:isDefinedBy owl: ;
+      rdfs:label "Ontology" ;
+      rdfs:subClassOf rdfs:Resource ;
+.
+     

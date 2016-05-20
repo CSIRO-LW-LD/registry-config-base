@@ -7,7 +7,7 @@
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 @prefix facet:   <http://www.epimorphics.com/ontologies/facet#> .
-@prefix rr-org:      <http://registry.example.org/structure/org/> .
+@prefix rr-org:      <http://environment.data.gov.au/structure/org/> .
 
 rr-org:ogc 
     a                         reg:NamespaceForward;

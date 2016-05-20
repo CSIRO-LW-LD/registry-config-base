@@ -1,0 +1,18 @@
+#parse("header.vm")
+#set($nav="about")
+#parse("navbar.vm")
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>ESIP Linked Data Registry <a href="http://www.esipfed.org"><img class="pull-right" src="/ui/images/esip-logo.png" alt="ESIP Federation" name="logoESIP" height="100" border="5"></img></a></h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <p>This service provides management and public access to codes, codelists, vocabularies, ontologies and other reference resources authorized or adopted by <a href="http://www.esipfed.org">ESIP Federation</a>.</p>
+        <p>It is based on the UKGovLD <a href="https://github.com/UKGovLD/registry-core/wiki">design</a> for a Linked Data registry.</p>
+      </div>
+    ## container will be closed by footer
+
+#parse("footer.vm")

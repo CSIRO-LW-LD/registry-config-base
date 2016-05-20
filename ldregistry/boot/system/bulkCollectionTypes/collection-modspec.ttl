@@ -1,0 +1,43 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix ldp:  <http://www.w3.org/ns/ldp#> .
+@prefix spec: <http://www.opengis.net/ont/modspec#> .
+@prefix reg:  <http://purl.org/linked-data/registry#> .
+
+
+<_RequirementsClass> a reg:RegisterItem ;
+	reg:definition [ reg:entity spec:RequirementsClass ; ] ;
+  ldp:membershipPredicate rdfs:member ;
+  rdfs:label "Requirements Class" ;
+  dct:description       "A class of requirements, comprising a logical grouping of normative statements that shall be satisfied as a group in conformant implementations. May have dependencies on other requirements classes, but there should be no circular dependencies else the classes must always be satisfied together so are functionally one class. "^^xsd:string ;
+  reg:itemClass owl:Class;
+  reg:status reg:statusStable;
+.
+
+spec:RequirementsClass
+      a       owl:Class ;
+      rdfs:label "Requirements Class" ;
+      dct:description       "A class of requirements, comprising a logical grouping of normative statements that shall be satisfied as a group in conformant implementations. May have dependencies on other requirements classes, but there should be no circular dependencies else the classes must always be satisfied together so are functionally one class. "^^xsd:string ;
+.
+
+
+<_ConformanceClass> a reg:RegisterItem ;
+	reg:definition [ reg:entity spec:ConformanceClass ; ] ;
+  ldp:membershipPredicate rdfs:member ;
+  rdfs:label "Conformance Class" ;
+  dct:description       "A class of conformance tests. A conformant implementation must pass all the tests in the class. "^^xsd:string ;
+  reg:itemClass owl:Class;
+  reg:status reg:statusStable;
+.
+
+spec:ConformanceClass
+      a       owl:Class ;
+      rdfs:label "Conformance Class" ;
+      dct:description       "A class of conformance tests. A conformant implementation must pass all the tests in the class. "^^xsd:string ;
+.
+

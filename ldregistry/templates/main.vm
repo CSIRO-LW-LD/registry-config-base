@@ -1,4 +1,3 @@
-#if($uri)#set($pageTitle="My test registry: $uri")#end
 #parse("header.vm")
 
 #if(!$uri.isEmpty() || $entity  || ${_browse})

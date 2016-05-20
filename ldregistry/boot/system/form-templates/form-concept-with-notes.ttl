@@ -33,48 +33,36 @@
             ui:tooltip "Alternative label for the concept"@en;
             ui:property skos:altLabel;
             ui:fieldType ui:labelField]
-      [a ui:FormField; rdfs:label "acronym, code or symbol"; skos:notation "notation";
-            ui:tooltip "Code, serial number or acronym for the concept"@en;
-            ui:property skos:notation;
-            ui:fieldType ui:labelField]
       [a ui:FormField; rdfs:label "description or definition"; skos:notation "description";
             ui:tooltip "Description of the concept (recommended)"@en;
             ui:property dct:description;
             ui:fieldType ui:textField]
-      [a ui:FormField; rdfs:label "has broader concept"; skos:notation "broader";
-            ui:tooltip "Has broader concept (recommended if known)."@en;
-            ui:property skos:broader;
-            ui:fieldType ui:anyURIField]
-      [a ui:FormField; rdfs:label "has narrower concept"; skos:notation "narrower";
-            ui:tooltip "Has narrower concept."@en;
-            ui:property skos:narrower;
-            ui:fieldType ui:anyURIField]
-      [a ui:FormField; rdfs:label "has related concept"; skos:notation "related";
-            ui:tooltip "Has related concept."@en;
-            ui:property skos:related;
-            ui:fieldType ui:anyURIField]
-      [a ui:FormField; rdfs:label "change note"; skos:notation "changeNote";
-            ui:tooltip "Change note"@en;
-            ui:property skos:changeNote;
+      [a ui:FormField; rdfs:label "source of definition (text or URI)"; skos:notation "source";
+            ui:tooltip "Source of definition (text citation or <URI-reference>)"@en;
+            ui:property dct:source;
             ui:fieldType ui:textField]
-      [a ui:FormField; rdfs:label "editorial note"; skos:notation "editorialNote";
-            ui:tooltip "Editorial note"@en;
-            ui:property skos:editorialNote;
-            ui:fieldType ui:textField]
+      [a ui:FormField; rdfs:label "acronym, code or symbol"; skos:notation "notation";
+            ui:tooltip "Code, serial number or acronym for the concept"@en;
+            ui:property skos:notation;
+            ui:fieldType ui:labelField]
       [a ui:FormField; rdfs:label "scope note"; skos:notation "scopeNote";
             ui:tooltip "Scope note"@en;
             ui:property skos:scopeNote;
             ui:fieldType ui:textField]
-      [a ui:FormField; rdfs:label "history note"; skos:notation "historyNote";
-            ui:tooltip "History note"@en;
-            ui:property skos:historyNote;
+      [a ui:FormField; rdfs:label "change note"; skos:notation "changeNote";
+            ui:tooltip "Change note"@en;
+            ui:property skos:changeNote;
             ui:fieldType ui:textField]
-      [a ui:FormField; rdfs:label "source of definition (as text)"; skos:notation "source";
-            ui:tooltip "Source of definition (text citation)"@en;
-            ui:property dct:source;
-            ui:fieldType ui:textField]
+      [a ui:FormField; rdfs:label "has broader concept"; skos:notation "broader";
+            ui:tooltip "Has broader concept in this vocabulary (recommended if known)."@en;
+            ui:property skos:broader;
+            ui:fieldType ui:anyURIField]
+      [a ui:FormField; rdfs:label "has narrower concept"; skos:notation "narrower";
+            ui:tooltip "Has narrower concept in this vocabulary."@en;
+            ui:property skos:narrower;
+            ui:fieldType ui:anyURIField]
       [a ui:FormField; rdfs:label "authority for definition (as a link)"; skos:notation "isDefinedBy";
-            ui:tooltip "Authority for definition (URI link)"@en;
+            ui:tooltip "Authority for definition (<URI-reference>)"@en;
             ui:property rdfs:isDefinedBy;
             ui:fieldType ui:anyURIField]
     );

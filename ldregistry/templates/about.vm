@@ -4,14 +4,19 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>My test registry<a href="http://www.example.org"><img class="pull-right" src="/ui/images/Untitled.png" alt="TEST ORGANIZATION" name="logoORG" height="100" border="5"></img></a></h1>
+        <h1>Environment definitions<a href="/org/augov"><img class="pull-right" src="/ui/logos/aus-gov-logo-stacked-black-grey.jpg" alt="Australian Government" name="logoAUGOV" height="110" border="5"></img></a></h1>
       </div>
     </div>
 
     <div class="container">
       <div class="row">
-        <p>This service provides management and public access to codes, codelists, vocabularies, ontologies and other reference resources authorized or adopted by the TEST ORGANIZATION.</p>
+        <p>This service provides management and public access to codes, codelists, vocabularies, ontologies and other reference resources authorized or adopted for environmental data managed and published by the Australian Government.</p>
         <p>It is based on the UKGovLD <a href="https://github.com/UKGovLD/registry-core/wiki">design</a> for a Linked Data registry.</p>
+      </div>
+      <hr/>
+      <div class="row">
+        <p>One <a href="/def/ba/glossary">vocabulary under development</a> is for the <a href="http://www.bioregionalassessments.gov.au">Bioregional Assessment Programme</a>, a collaboration between the Australian Government Department of the Environment, the Bureau of Meteorology, CSIRO and Geoscience Australia. This vocabulary is under construction, and both the content and format is under review. </p>
+        <p><a href="http://www.bioregionalassessments.gov.au"><img class="center-block" src="http://data.bioregionalassessments.gov.au/public/theme/img/ba_web_logo.gif" alt="BA logos" name="ba_web_logo" /></a></p>
       </div>
     ## container will be closed by footer
 

@@ -6,7 +6,6 @@
 @prefix dc:   <http://purl.org/dc/elements/1.1/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
 @prefix version:  <http://purl.org/linked-data/version#> .
 @prefix ldp:  <http://www.w3.org/ns/ldp#> .
 @prefix ssd:  <http://www.w3.org/ns/sparql-service-description#> .
@@ -276,20 +275,6 @@
     vann:preferredNamespaceUri "http://www.w3.org/2004/02/skos/core#";
     .
 
-<_skosxl> a reg:RegisterItem;
-    rdfs:label "skos-xl"@en;
-    dct:description "skos-xl prefix registration"@en;
-    reg:itemClass owl:Ontology;
-    reg:status reg:statusStable;
-    reg:definition [ reg:entity <http://www.w3.org/2008/05/skos-xl#> ];
-    .
-<http://www.w3.org/2008/05/skos-xl#> a owl:Ontology;
-    rdfs:label "skos-xl"@en;
-    dct:description "skos-xl prefix registration"@en;
-    vann:preferredNamespacePrefix "skosxl";
-    vann:preferredNamespaceUri "http://www.w3.org/2008/05/skos-xl#";
-    .
-
 <_ldp> a reg:RegisterItem;
     rdfs:label "ldp"@en;
     dct:description "ldp prefix registration"@en;
@@ -382,16 +367,16 @@ odrs: a owl:Ontology;
     vann:preferredNamespaceUri "http://schema.theodi.org/odrs#" ;
     .
 
-<_rr-ui> a reg:RegisterItem;
-    rdfs:label "rr-ui"@en;
+<_env-ui> a reg:RegisterItem;
+    rdfs:label "env-ui"@en;
     reg:itemClass owl:Ontology;
     reg:status reg:statusExperimental;
-    reg:definition [ reg:entity <http://registry.example.org/structure/ui/> ];
+    reg:definition [ reg:entity <http://environment.data.gov.au/structure/ui/> ];
     .
 
-<http://registry.example.org/structure/ui/> a owl:Ontology;
-    rdfs:label "rr-ui"@en;
-    dct:description "rr-ui prefix registration - properties used in the UI of the registry"@en;
-    vann:preferredNamespacePrefix "rr-ui";
-    vann:preferredNamespaceUri "http://registry.example.org/structure/ui/";
+<http://environment.data.gov.au/structure/ui/> a owl:Ontology;
+    rdfs:label "env-ui"@en;
+    dct:description "env-ui prefix registration - properties used in the UI of the environment registry"@en;
+    vann:preferredNamespacePrefix "env-ui";
+    vann:preferredNamespaceUri "http://environment.data.gov.au/structure/ui/";
     .

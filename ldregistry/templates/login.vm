@@ -32,6 +32,7 @@
                   <h2>Login</h2>
                 </div>
               </div>
+              #if(!$registry.configExtensions.suppressPasswordLogin)
               <div class="row">
                 <form class="form-horizontal" role="form"  action="$root/system/security/pwlogin" method="post">
                   <div class="form-group">
@@ -54,10 +55,13 @@
                   </div>
                 </form>
               </div>
+              #end
               <div class="row space-above">
                 <div class="col-md-12">
                   <form class="form-horizontal" action="$root/system/security/loginoa" method="post">
+                    #if(!$registry.configExtensions.suppressPasswordLogin)
                     <p>Or login via a registered Google G+ account</p>
+                    #end
                     <div class="input-group">
                       <input type="hidden" name="provider" value="https://accounts.google.com/o/oauth2/auth" />
                       <input type="hidden" name="return" value="$return" />
@@ -72,6 +76,7 @@
           <div class="col-md-5 col-md-offset-1 blob pale-orange">
             <div class="blob-inner">
               <h2>Register as a new user</h2>
+              #if( ! $registry.configExtensions.suppressPasswordLogin)
               <div class="row">
                 <form class="form-horizontal" role="form"  action="$root/system/security/pwregister" method="post">
                   <div class="form-group">
@@ -100,10 +105,13 @@
                   </div>
                 </form>
               </div>
+              #end
               <div class="row space-above">
                 <div class="col-md-12">
                   <form class="form-horizontal" action="$root/system/security/registeroa" method="post">
+                    #if(!$registry.configExtensions.suppressPasswordLogin)
                     <p>Or authorize via a Google G+ account</p>
+                    #end
                     <div class="input-group">
                       <input type="hidden" name="provider" value="https://accounts.google.com/o/oauth2/auth" />
                       <input type="hidden" name="return" value="$return" />
