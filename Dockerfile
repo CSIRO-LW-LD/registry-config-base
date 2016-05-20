@@ -2,10 +2,10 @@ FROM ubuntu
 ENV HOME /root
 ADD . /root/registry-deploy
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends git maven curl tomcat7 openjdk-7-jdk wget nginx sysv-rc-conf
+RUN apt-get install -y --no-install-recommends git maven curl tomcat7 wget nginx sysv-rc-conf cron
 RUN sysv-rc-conf tomcat7 on
 RUN sysv-rc-conf nginx on
-RUN mkdir -p /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry /var/opt/nginx/cache
+RUN mkdir -p /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry /var/opt/nginx/cache /etc/sudoers.d/ldregistry
 # get appropriate .war file 
 RUN wget https://s3-eu-west-1.amazonaws.com/ukgovld/release/com/github/ukgovld/registry-core/1.1.0/registry-core-1.1.0.war
 RUN mkdir -p /usr/share/tomcat7/logs
