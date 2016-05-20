@@ -15,7 +15,7 @@
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 
-@base <http://environment.data.gov.au/> .
+@base <http://resources.usgin.org/uri-gin/dtr/> .
 
 <> a reg:Register;
     version:currentVersion <>;
