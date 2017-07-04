@@ -41,8 +41,10 @@ ADD ./tomcat7 /etc/default/tomcat7
 RUN mkdir -p /backups/config
 RUN mkdir -p /backups/ldregistry
 RUN mkdir -p /backups/old/ 
-RUN echo '#!/bin/bash' >> restartbackup.sh && echo 'service tomcat7 stop && cp -r /var/opt/ldregistry/* /backups/ldregistry && service tomcat7 start' >> restartbackup.sh && chmod +x restartbackup.sh
-RUN echo '#!/bin/bash' >> copybackup.sh && echo 'rm -rf /backups/old/ && cp -r /backups/ldregistry /backups/old' >> copybackup.sh && chmod +x copybackup.sh 
+RUN echo '#!/bin/bash' >> restartbackup.sh && echo 'supervisorctl stop tomcat7 && bash /etc/init.d/tomcat7 stop && sleep 5 && cp -ar /var/opt/ldregistry/* /backups/ldregistry && supervisorctl start tomcat7' >> restartbackup.sh && \
+    chmod +x restartbackup.sh
+RUN echo '#!/bin/bash' >> copybackup.sh && echo 'rm -rf /backups/old/ && cp -ar /backups/ldregistry /backups/old' >> copybackup.sh && \
+    chmod +x copybackup.sh 
 RUN (crontab -l 2>/dev/null; echo "00 12 * * * /restartbackup.sh") | crontab -
 RUN (crontab -l 2>/dev/null; echo "00 6 * * * /copybackup.sh") | crontab -
 
