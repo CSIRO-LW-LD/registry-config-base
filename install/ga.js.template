@@ -1,0 +1,5 @@
+// GOOGLE ANALYTICS
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '$GOOGLE_AUTH_UA', 'auto');
+ga('send', 'pageview');
+
