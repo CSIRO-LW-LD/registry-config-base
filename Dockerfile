@@ -13,7 +13,7 @@ RUN adduser --system --home=/home/ldr ldr
 ENV HOME /home/ldr
 RUN sysv-rc-conf tomcat7 on
 RUN sysv-rc-conf nginx on
-RUN mkdir -p /home/ldr/registry-deploy /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry /var/opt/nginx/cache /var/log/supervisor /usr/share/tomcat7/logs
+RUN mkdir -p /home/ldr/registry-deploy /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry /var/log/tomcat7 /var/log/tomcat7/rotate /var/opt/nginx/cache /var/log/supervisor /usr/share/tomcat7/logs
 # get appropriate .war file 
 RUN wget https://s3-eu-west-1.amazonaws.com/ukgovld/release/com/github/ukgovld/registry-core/1.2.0/registry-core-1.2.0.war
 
@@ -38,7 +38,7 @@ RUN sed -i -e 's/su\ root\ syslog/su\ root\ adm/' /etc/logrotate.conf
 RUN cp /home/ldr/registry-deploy/install/nginx.conf /etc/nginx/conf.d/localhost.conf
 RUN mkdir -p /etc/sudoers.d && cp /home/ldr/registry-deploy/install/sudoers.conf /etc/sudoers.d/ldregistry
 RUN rm -rf /var/lib/tomcat7/webapps/*
-RUN chown -R tomcat7 /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry
+RUN chown -R tomcat7 /opt/ldregistry /var/opt/ldregistry /var/log/ldregistry /var/log/tomcat7 /var/log/tomcat7/rotate
 RUN chown -R root:tomcat7 /run /var/run && chmod -R 776 /run /var/run && touch /var/run/tomcat7.pid && chown root:tomcat7 /var/run/tomcat7.pid && chmod 776 /var/run/tomcat7.pid
 # copy appropriate .war file 
 RUN cp registry-core-1.2.0.war /var/lib/tomcat7/webapps/ROOT.war
