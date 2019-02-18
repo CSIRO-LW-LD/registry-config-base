@@ -35,6 +35,7 @@ RUN cp -af /home/ldr/registry-deploy/install/nginx.logrotate.conf /etc/logrotate
 RUN cp -af /home/ldr/registry-deploy/install/tomcat7.logrotate.conf /etc/logrotate.d/tomcat7 && chmod 0644 /etc/logrotate.d/tomcat7
 # fix a logrotate bug
 RUN sed -i -e 's/su\ root\ syslog/su\ root\ adm/' /etc/logrotate.conf
+RUN chown www-data /var/log/nginx
 RUN cp /home/ldr/registry-deploy/install/nginx.conf /etc/nginx/conf.d/localhost.conf
 RUN mkdir -p /etc/sudoers.d && cp /home/ldr/registry-deploy/install/sudoers.conf /etc/sudoers.d/ldregistry
 RUN rm -rf /var/lib/tomcat7/webapps/*
